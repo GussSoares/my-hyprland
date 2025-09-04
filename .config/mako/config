@@ -1,4 +1,3 @@
-anchor=top-right
 font=monospace 10
 background-color=#1e1e2e
 text-color=#b4befe
@@ -11,6 +10,8 @@ border-radius=5
 default-timeout=10000
 group-by=summary
 icons=1
+max-icon-size=64
+anchor=top-center
 
 [grouped]
 format=<b>%s</b>\n%b
