@@ -7,6 +7,9 @@
     "passthrough": false,
     "gtk-layer-shell": true,
     "reload_style_on_change": true,
+    "tooltip": true,
+
+    // Modules Left
     "modules-left": [
         "custom/l_end",
         "hyprland/workspaces",
@@ -19,9 +22,13 @@
         "custom/cava",
         "custom/r_end"
     ],
+
+    // Modules Center
     "modules-center": [
         "group/system-info"
     ],
+
+    // Modules Right
     "modules-right": [
         "group/system-levels",
         "custom/l_end",
@@ -34,12 +41,13 @@
         "group/control-panel",
         "custom/padd"
     ],
+
     "group/system-info": {
         "orientation": "horizontal",
         "modules": [
             "custom/cpu",
-            "custom/ram"
-            // "custom/gpu"
+            "custom/ram",
+            "custom/gpu"
         ]
     },
     "group/system-levels": {
@@ -70,7 +78,7 @@
     },
     "hyprland/workspaces": {
         "rotate": 0,
-        "all-outputs": true,
+        "all-outputs": false,
         "active-only": false,
         "on-click": "activate",
         "disable-scroll": false,
@@ -103,8 +111,8 @@
         }
     },
     "custom/cpu": {
-        "exec": "python ~/bin/system-info.py --cpu --normal-color \"#f5c2e7\" --critical-color \"#f38ba8\" | cat",
-        // "on-click": "python ~/bin/system-info.py --cpu --click",
+        "exec": "~/.pyenv/versions/hyprland/bin/python3  ~/bin/system-info.py --cpu --normal-color \"#f5c2e7\" --critical-color \"#f38ba8\" | cat",
+        // "on-click": "~/.pyenv/versions/hyprland/bin/python3  ~/bin/system-info.py --cpu --click",
         "on-click": "foot -e btop",
         "return-type": "json",
         "format": "{}  ",
@@ -113,7 +121,7 @@
         "tooltip": true
     },
     "custom/ram": {
-        "exec": "python ~/bin/system-info.py --ram --normal-color \"#fab387\" --critical-color \"#f38ba8\" | cat",
+        "exec": "~/.pyenv/versions/hyprland/bin/python3  ~/bin/system-info.py --ram --normal-color \"#fab387\" --critical-color \"#f38ba8\" | cat",
         "on-click": "foot -e btop",
         "return-type": "json",
         "format": "{}  ",
@@ -122,8 +130,8 @@
         "tooltip": true
     },
     "custom/gpu": {
-        "exec": "python ~/bin/system-info.py --gpu --normal-color \"#f5e0dc\" --critical-color \"#f38ba8\" | cat",
-        "on-click": "python ~/bin/system-info.py --gpu --click",
+        "exec": "~/.pyenv/versions/hyprland/bin/python3  ~/bin/system-info.py --gpu --normal-color \"#f5e0dc\" --critical-color \"#f38ba8\" | cat",
+        "on-click": "~/.pyenv/versions/hyprland/bin/python3  ~/bin/system-info.py --gpu --click",
         "return-type": "json",
         "format": "{}",
         "rotate": 0,
@@ -190,7 +198,7 @@
         "interval": 2,
         "rotate": 0,
         // "on-click": "sh ~/bin/volume.sh --device output --action toggle",
-        "on-click": "pavucontrol",
+        "on-click": "GDK_BACKEND=x11 pavucontrol",
         "on-scroll-up": "sh ~/bin/volume.sh --device output --action increase",
         "on-scroll-down": "sh ~/bin/volume.sh --device output --action decrease",
         "scroll-step": 5,
@@ -203,7 +211,7 @@
         "interval": 5,
         "rotate": 0,
         // "on-click": "sh ~/bin/volume.sh --device input --action toggle",
-        "on-click": "pavucontrol",
+        "on-click": "GDK_BACKEND=x11  pavucontrol",
         "on-scroll-up": "sh ~/bin/volume.sh --device input --action increase",
         "on-scroll-down": "sh ~/bin/volume.sh --device input --action decrease",
         "scroll-step": 5,
@@ -231,7 +239,7 @@
             "updated": "󰂪 "
         },
         "exec-if": "which waybar-module-pacman-updates",
-        "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 7200 --network-interval-seconds",
+        "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 7200",
         "on-click": "foot -e update"
     },
     "custom/do-not-disturb": {

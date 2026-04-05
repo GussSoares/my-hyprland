@@ -43,6 +43,11 @@ end
 ## Starship prompt
 if status --is-interactive
    source ("/usr/bin/starship" init fish --print-full-init | psub)
+
+   # Garante que Ctrl+C interrompa processos
+   stty intr ^C
+   # Garante que Ctrl+D envie fim de arquivo (sai do Python/Node)
+   stty eof ^D
 end
 
 ## Advanced command-not-found hook
@@ -119,7 +124,7 @@ alias lt 'eza -aT --color=always --group-directories-first --icons' # tree listi
 alias l. 'eza -ald --color=always --group-directories-first --icons .*' # show only dotfiles
 
 # Replace some more things with better alternatives
-alias cat 'bat --style header --style snip --style changes --style header'
+abbr cat 'bat --style header,snip,changes'
 if not test -x /usr/bin/yay; and test -x /usr/bin/paru
     alias yay 'paru'
 end
@@ -164,6 +169,23 @@ alias tb 'nc termbin.com 9999'
 alias helpme 'echo "To print basic information about a command use tldr <command>"'
 alias pacdiff 'sudo -H DIFFPROG=meld pacdiff'
 
+# alias Android Emulator
+alias emulador 'env QT_QPA_PLATFORM=xcb LIBGL_ALWAYS_INDIRECT=1 \
+            ~/Android/Sdk/emulator/emulator -avd "Medium_Phone" \
+            -gpu host \
+            -accel on \
+            -feature -Vulkan \
+            -no-snapshot-load \
+            -no-boot-anim \
+            -memory 4096 \
+            -cores 4'
+
+alias emulador-intel '~/Android/Sdk/emulator/emulator -avd "Medium_Phone" \
+            -gpu host \
+            -accel on \
+            -no-boot-anim'
+
+
 # dotfiles
 alias dotfiles '/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
@@ -176,7 +198,7 @@ alias rip 'expac --timefmt="%Y-%m-%d %T" "%l\t%n %v" | sort | tail -200 | nl'
 
 ## Run fastfetch if session is interactive
 
-alias fastfetch 'fastfetch --raw ~/.config/fastfetch/catppuccin.sixel --logo-width 20 --logo-height 10 --logo-padding-top 2'
+alias fastfetch 'fastfetch --kitty-icat .config/fastfetch/logo.png'
 
 #if status --is-interactive && type -q fastfetch
 #   # fastfetch --config neofetch.jsonc
@@ -187,3 +209,9 @@ alias fastfetch 'fastfetch --raw ~/.config/fastfetch/catppuccin.sixel --logo-wid
 set -x PATH "/home/nclarke/.pyenv/bin" $PATH
 status --is-interactive; and pyenv init - | source
 status --is-interactive; and pyenv virtualenv-init - | source
+
+# Android
+set -Ux ANDROID_HOME $HOME/Android/Sdk
+set -Ux ANDROID_SDK_ROOT $HOME/Android/Sdk
+set -Ux PATH $ANDROID_HOME/platform-tools $ANDROID_HOME/tools $ANDROID_HOME/tools/bin $PATH
+set -Ux ANDROID_AVD_HOME $HOME/.config/.android/avd
