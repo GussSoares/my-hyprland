@@ -185,10 +185,8 @@ alias emulador-intel '~/Android/Sdk/emulator/emulator -avd "Medium_Phone" \
             -accel on \
             -no-boot-anim'
 
-
 # dotfiles
 alias dotfiles '/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
-
 
 # Get the error messages from journalctl
 alias jctl 'journalctl -p 3 -xb'
@@ -197,8 +195,10 @@ alias jctl 'journalctl -p 3 -xb'
 alias rip 'expac --timefmt="%Y-%m-%d %T" "%l\t%n %v" | sort | tail -200 | nl'
 
 ## Run fastfetch if session is interactive
-
 alias fastfetch 'fastfetch --kitty-icat .config/fastfetch/logo.png'
+
+## clear System
+alias clean_system="sudo pacman -Rs (pacman -Qdtq); sudo paccache -rk1; sudo journalctl --vacuum-time=3d; yay -Sc"
 
 #if status --is-interactive && type -q fastfetch
 #   # fastfetch --config neofetch.jsonc

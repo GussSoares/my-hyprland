@@ -6,9 +6,9 @@ COLOR_ON="#89b4fa"      # Azul
 COLOR_CONNECTED="#a6e3a1"  # Verde
 
 # Ícones Nerd Font
-ICON_OFF="󰂲  "
-ICON_ON="󰂯  "
-ICON_CONNECTED="󰂱  "
+ICON_OFF="󰂲 "
+ICON_ON="󰂯 "
+ICON_CONNECTED="󰂱 "
 
 # Verifica se o Bluetooth está ligado
 if bluetoothctl show | grep -q "Powered: yes"; then

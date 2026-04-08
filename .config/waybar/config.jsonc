@@ -58,8 +58,10 @@
             "custom/updates",
             // "custom/do-not-disturb",
             // "custom/vpn",
-            // "custom/bluetooth",
+            "custom/padd",
+            "custom/bluetooth",
             "tray",
+            "custom/notification",
             "custom/power"
         ]
     },
@@ -106,7 +108,7 @@
     "custom/cpu": {
         "exec": "~/.pyenv/versions/hyprland/bin/python3  ~/bin/system-info.py --cpu --normal-color \"#f5c2e7\" --critical-color \"#f38ba8\" | cat",
         // "on-click": "~/.pyenv/versions/hyprland/bin/python3  ~/bin/system-info.py --cpu --click",
-        "on-click": "foot -e btop",
+        "on-click": "kitty --class btop-floating -e btop",
         "return-type": "json",
         "format": "{}  ",
         "rotate": 0,
@@ -115,7 +117,7 @@
     },
     "custom/ram": {
         "exec": "~/.pyenv/versions/hyprland/bin/python3  ~/bin/system-info.py --ram --normal-color \"#fab387\" --critical-color \"#f38ba8\" | cat",
-        "on-click": "foot -e btop",
+        "on-click": "kitty --class btop-floating -e btop",
         "return-type": "json",
         "format": "{}  ",
         "rotate": 0,
@@ -191,7 +193,8 @@
         "interval": 2,
         "rotate": 0,
         // "on-click": "sh ~/bin/volume.sh --device output --action toggle",
-        "on-click": "GDK_BACKEND=x11 pavucontrol",
+        // "on-click": "GDK_BACKEND=x11 pavucontrol",
+        "on-click": "kitty --class volume-floating -e wiremix --tab output",
         "on-scroll-up": "sh ~/bin/volume.sh --device output --action increase",
         "on-scroll-down": "sh ~/bin/volume.sh --device output --action decrease",
         "scroll-step": 5,
@@ -204,7 +207,8 @@
         "interval": 5,
         "rotate": 0,
         // "on-click": "sh ~/bin/volume.sh --device input --action toggle",
-        "on-click": "GDK_BACKEND=x11  pavucontrol",
+        //"on-click": "GDK_BACKEND=x11  pavucontrol",
+        "on-click": "kitty --class volume-floating -e wiremix --tab input",
         "on-scroll-up": "sh ~/bin/volume.sh --device input --action increase",
         "on-scroll-down": "sh ~/bin/volume.sh --device input --action decrease",
         "scroll-step": 5,
@@ -233,7 +237,7 @@
         },
         "exec-if": "which waybar-module-pacman-updates",
         "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 7200",
-        "on-click": "foot -e update"
+        "on-click": "kitty --class update-floating -e update"
     },
     "custom/do-not-disturb": {
         "exec": "sh ~/bin/do-not-disturb.sh --status --disabled-color \"#f38ba8\" --enabled-color \"#a6e3a1\" | cat",
@@ -257,7 +261,8 @@
         "exec": "sh ~/bin/bluetooth.sh",
         "interval": 3,
         "rotate": 0,
-        "on-click": "blueman-manager",
+        // "on-click": "blueman-manager",
+        "on-click": "~/bin/bluetooth-menu.sh",
         "tooltip": false
     },
     "custom/network": {
@@ -303,8 +308,28 @@
     },
     "custom/cava": {
         "format": "{}",
-        "on-click": "foot -e cava",
+        "on-click": "kitty -e cava",
         "exec": "sh ~/bin/cava.sh",
         "tooltip": false
+    },
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+            "notification": " 󰂚<span foreground='red'><sup> </sup></span>",
+            "none": " 󰂚 ",
+            "dnd-notification": " 󰂛<span foreground='red'><sup> </sup></span>",
+            "dnd-none": " 󰂛 ",
+            "inhibited-notification": " <span foreground='red'><sup> </sup></span>",
+            "inhibited-none": "  ",
+            "dnd-inhibited-notification": " <span foreground='red'><sup> </sup></span>",
+            "dnd-inhibited-none": " 󰂛 "
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
     }
 }
