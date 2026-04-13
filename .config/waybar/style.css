@@ -167,3 +167,22 @@ tooltip {
     background: @main-bg;
     margin: 4px 0px 4px 0px;
 }
+
+#network {
+    color: #a6e3a1; /* Verde (Catppuccin Green) */
+}
+
+/* Sinal Médio (abaixo de 60%) */
+#network.linked, #network.wifi.low {
+    color: #f9e2af; /* Amarelo (Catppuccin Yellow) */
+}
+
+/* Sinal Ruim ou Desconectado */
+#network.disconnected {
+    color: #f38ba8; /* Vermelho (Catppuccin Red) */
+}
+
+/* Opcional: Efeito quando está buscando rede */
+#network.scanning {
+    color: #cba6f7; /* Mauve */
+}

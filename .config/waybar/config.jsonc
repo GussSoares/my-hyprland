@@ -59,7 +59,8 @@
             // "custom/do-not-disturb",
             // "custom/vpn",
             "custom/bluetooth",
-            "tray",
+            //"tray",
+            "network",
             "custom/notification",
             "custom/power"
         ]
@@ -264,20 +265,28 @@
         "on-click": "~/bin/bluetooth-menu.sh",
         "tooltip": false
     },
-    "custom/network": {
-        //"interface": "wlp0s20f3", // (Optional) To force the use of this interface  "format-wifi": "  {essid}",
-        "format": "⚠Disabled",
-        "format-wifi": "",
-        "format-ethernet": "",
+    "network": {
+        "interface": "wlp0s20f3", // (Optional) To force the use of this interface  "format-wifi": "  {essid}",
+        "format": "⚠ Disabled",
+//        "format-wifi": "  {essid}",
+        "format-wifi": "{icon} {essid}",
+        "format-ethernet": "󰈀 {ifname}",
         "format-linked": "{ifname} (No IP)",
-        "format-disconnected": "⚠Disabled",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "format-disconnected": "󰤮 Disabled",
+        //"format-alt": "{ifname}: {ipaddr}/{cidr}",
         "family": "ipv4",
+        "format-icons": [
+            "󰤯 ", // 0-20%
+            "󰤟 ", // 21-40%
+            "󰤢 ", // 41-60%
+            "󰤥 ", // 61-80%
+            "󰤨 "  // 81-100%
+        ],
         "tooltip-format-wifi": "  {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
-        "tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
+        "tooltip-format-ethernet": "󰈀 {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
         //"min-length": 2,
         //"max-length": 2,
-        "on-click": "nm-connection-editor"
+        "on-click": "kitty --class network-floating -e gazelle"
     },
     "custom/power": {
         "on-click": "bin/wofi-power-menu.sh",
@@ -332,3 +341,4 @@
         "escape": true
     }
 }
+
