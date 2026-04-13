@@ -8,6 +8,9 @@ set -x SHELL /usr/bin/fish
 set -xU MANPAGER "sh -c 'col -bx | bat -l man -p'"
 set -xU MANROFFOPT "-c"
 
+# init starship
+starship init fish | source
+
 # Hint to exit PKGBUILD review in Paru
 set -x PARU_PAGER "less -P \"Press 'q' to exit the PKGBUILD review.\""
 
@@ -41,17 +44,17 @@ if test -d ~/Applications/depot_tools
 end
 
 ## Starship prompt
-if status --is-interactive
-   source ("/usr/bin/starship" init fish --print-full-init | psub)
-
-   # Garante que Ctrl+C interrompa processos
-   stty intr ^C
-   # Garante que Ctrl+D envie fim de arquivo (sai do Python/Node)
-   stty eof ^D
-end
+#if status --is-interactive
+#   source ("/usr/bin/starship" init fish --print-full-init | psub)
+#
+#   # Garante que Ctrl+C interrompa processos
+#   stty intr ^C
+#   # Garante que Ctrl+D envie fim de arquivo (sai do Python/Node)
+#   stty eof ^D
+#end
 
 ## Advanced command-not-found hook
-source /usr/share/doc/find-the-command/ftc.fish
+#source /usr/share/doc/find-the-command/ftc.fish
 
 ## Functions
 # Functions needed for !! and !$ https://github.com/oh-my-fish/plugin-bang-bang
@@ -124,7 +127,8 @@ alias lt 'eza -aT --color=always --group-directories-first --icons' # tree listi
 alias l. 'eza -ald --color=always --group-directories-first --icons .*' # show only dotfiles
 
 # Replace some more things with better alternatives
-abbr cat 'bat --style header,snip,changes'
+#abbr cat 'bat --style header,snip,changes'
+
 if not test -x /usr/bin/yay; and test -x /usr/bin/paru
     alias yay 'paru'
 end
@@ -154,6 +158,8 @@ alias untar 'tar -zxvf '
 alias upd '/usr/bin/garuda-update'
 alias vdir 'vdir --color=auto'
 alias wget 'wget -c '
+alias cat 'bat --style header,snip,changes'
+
 
 # Get fastest mirrors
 alias mirror 'sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist'
@@ -194,16 +200,8 @@ alias jctl 'journalctl -p 3 -xb'
 # Recent installed packages
 alias rip 'expac --timefmt="%Y-%m-%d %T" "%l\t%n %v" | sort | tail -200 | nl'
 
-## Run fastfetch if session is interactive
-alias fastfetch 'fastfetch --kitty-icat .config/fastfetch/logo.png'
-
 ## clear System
 alias clean_system="sudo pacman -Rs (pacman -Qdtq); sudo paccache -rk1; sudo journalctl --vacuum-time=3d; yay -Sc"
-
-#if status --is-interactive && type -q fastfetch
-#   # fastfetch --config neofetch.jsonc
-#   fastfetch --raw ~/.config/fastfetch/catppuccin.sixel --logo-width 40 --logo-height 20 --logo-padding-top 2
-#end
 
 # pyenv
 set -x PATH "/home/nclarke/.pyenv/bin" $PATH
@@ -215,3 +213,4 @@ set -Ux ANDROID_HOME $HOME/Android/Sdk
 set -Ux ANDROID_SDK_ROOT $HOME/Android/Sdk
 set -Ux PATH $ANDROID_HOME/platform-tools $ANDROID_HOME/tools $ANDROID_HOME/tools/bin $PATH
 set -Ux ANDROID_AVD_HOME $HOME/.config/.android/avd
+

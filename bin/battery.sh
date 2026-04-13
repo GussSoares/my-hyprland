@@ -32,9 +32,9 @@ is_charging() {
 notify_battery_time() {
     local remaining_time=$(upower -i $(upower -e | grep 'BAT') | grep --color=never -E "time to empty|time to full" | awk '{print $4, $5}')
     if [ -z "$remaining_time" ] || [[ "$remaining_time" == *"0"* ]]; then
-        notify-send "Battery Status" "Remaining time: data is being calculated or unavailable."
+        notify-send "Battery Status" "Remaining time: data is being calculated or unavailable." --icon=battery-good --app-name="Gerenciador de Energia" --urgency=normal
     else
-        notify-send "Battery Status" "Remaining time: $remaining_time"
+        notify-send "Battery Status" "Remaining time: $remaining_time" --icon=battery-good --app-name="Gerenciador de Energia" --urgency=normal
     fi
 }
 

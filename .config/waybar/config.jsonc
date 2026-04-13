@@ -58,7 +58,6 @@
             "custom/updates",
             // "custom/do-not-disturb",
             // "custom/vpn",
-            "custom/padd",
             "custom/bluetooth",
             "tray",
             "custom/notification",
@@ -281,7 +280,7 @@
         "on-click": "nm-connection-editor"
     },
     "custom/power": {
-        "on-click": "nwgbar",
+        "on-click": "bin/wofi-power-menu.sh",
         "format": "<span color=\"#f38ba8\">  </span>",
         "rotate": 0,
         "tooltip": false
@@ -308,7 +307,7 @@
     },
     "custom/cava": {
         "format": "{}",
-        "on-click": "kitty -e cava",
+        "on-click": "kitty --class cava-floating -e cava",
         "exec": "sh ~/bin/cava.sh",
         "tooltip": false
     },
