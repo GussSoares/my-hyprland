@@ -204,7 +204,7 @@ alias rip 'expac --timefmt="%Y-%m-%d %T" "%l\t%n %v" | sort | tail -200 | nl'
 alias clean_system="sudo pacman -Rs (pacman -Qdtq); sudo paccache -rk1; sudo journalctl --vacuum-time=3d; yay -Sc"
 
 # pyenv
-set -x PATH "/home/nclarke/.pyenv/bin" $PATH
+set -x PATH "~/.pyenv/bin" $PATH
 status --is-interactive; and pyenv init - | source
 status --is-interactive; and pyenv virtualenv-init - | source
 
@@ -214,3 +214,20 @@ set -Ux ANDROID_SDK_ROOT $HOME/Android/Sdk
 set -Ux PATH $ANDROID_HOME/platform-tools $ANDROID_HOME/tools $ANDROID_HOME/tools/bin $PATH
 set -Ux ANDROID_AVD_HOME $HOME/.config/.android/avd
 
+
+# Variáveis de Ambiente Portáteis
+set -gx ANDROID_HOME $HOME/Android/Sdk
+set -gx ANDROID_AVD_HOME $HOME/.config/.android/avd
+set -gx ANDROID_SDK_ROOT $HOME/Android/Sdk
+set -gx STARSHIP_CONFIG $HOME/.config/starship-nerd.toml
+
+# Configurações de Manpages
+set -gx MANPAGER "sh -c 'col -bx | bat -l man -p'"
+set -gx MANROFFOPT "-c"
+
+# Adicionando ao PATH de forma limpa e portátil
+fish_add_path $HOME/Android/Sdk/platform-tools
+fish_add_path $HOME/Android/Sdk/tools
+fish_add_path $HOME/Android/Sdk/tools/bin
+fish_add_path $HOME/.pyenv/bin
+fish_add_path $HOME/.local/bin

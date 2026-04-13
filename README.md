@@ -62,7 +62,47 @@ pip install psutil gputil pyamdgpuinfo
 - Color scripts use lolcat for coloring; install it if not included.
 - For notifications, mako or dunst is used; ensure one is running.
 
+### 🚀 Features
 
+This Hyprland setup includes:
+- **Window Manager**: Hyprland with custom keybindings and layouts.
+- **Status Bar**: Waybar with modules for battery, volume, brightness, network, etc.
+- **Launcher**: Rofi with custom menus for clipboard, network, power, VPN, and emoji.
+- **Terminals**: Alacritty, Foot, and Kitty configurations.
+- **Notifications**: Mako notification daemon.
+- **Audio Visualizer**: Cava integration.
+- **System Monitors**: Btop and Fastfetch.
+- **Shell**: Fish with Starship prompt.
+- **Utilities**: Scripts for battery, brightness, volume, screenshots, wallpaper slideshow, etc.
+- **Color Scripts**: ASCII art scripts with Catppuccin theming.
+- **Dock**: NWG Dock for Hyprland.
+
+### ⌨️ Keybindings
+
+Common keybindings (check `~/.config/hypr/hyprland.conf` for full list):
+- `Super + Q`: Kill active window
+- `Super + Space`: Toggle floating window
+- `Super + F`: Toggle fullscreen
+- `Super + D`: Launch Rofi
+- `Super + Shift + E`: Power menu
+- `Super + B`: Toggle Waybar
+- `Print`: Screenshot
+- Volume/Brightness: Function keys or custom scripts
+
+### 🛠️ Customization
+
+- Themes: Based on Catppuccin Mocha. Edit colors in config files.
+- Wallpapers: Use `swww` for dynamic wallpapers (script in `~/.config/hypr/scripts/`).
+- Fonts: Nerd Fonts recommended for icons.
+- To change themes, modify the color schemes in Waybar, Hyprland, etc.
+
+### 🐛 Troubleshooting
+
+- If Waybar doesn't show: Check if all dependencies are installed and configs copied.
+- Notifications not working: Ensure `mako` or `dunst` is running.
+- Scripts not executing: Make sure they are executable (`chmod +x`).
+- Hyprland not starting: Check logs with `hyprctl` or journalctl.
+- For AMD GPUs: Install `pyamdgpuinfo` if system-info.py fails.
 
 ## ❤️ Gratitude
 
