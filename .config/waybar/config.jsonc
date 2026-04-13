@@ -48,6 +48,7 @@
         "modules": [
             "custom/brightness",
             "custom/battery",
+            "power-profiles-daemon",
             "custom/volume",
             "custom/microphone"
         ]
@@ -55,20 +56,48 @@
     "group/control-panel": {
         "orientation": "horizontal",
         "modules": [
+            "group/tray-drawer",
             "custom/updates",
             // "custom/do-not-disturb",
             // "custom/vpn",
             "custom/bluetooth",
-            //"tray",
             "network",
+            //"custom/padd",
             "custom/notification",
             "custom/power"
         ]
     },
+    "group/tray-drawer": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "not-tray",
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "custom/tray-icon", // Um ícone fixo (ex: 󰅀)
+            "tray" // O tray que vai expandir
+        ]
+    },
+    "custom/tray-icon": {
+        "format": "  ", // Um ícone de seta ou o que preferir
+        "tooltip": false
+    },
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip-format": "Perfil: {profile}\nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+            "default": "<span color='#f5c2e7'> </span>",
+            "performance": "<span color='#f38ba8'> </span>", // Ícone de raio para performance
+            "balanced": "<span color='#89b4fa'>  </span>" , // Ícone de balança para equilibrado
+            "power-saver": "<span color='#a6e3a1'> </span>" // Ícone de folha para economia
+        }
+    },
     "tray": {
-        "icon-size": 18,
+        "icon-size": 17,
         "rotate": 0,
-        "spacing": 10,
+        "spacing": 5,
         "reverse-direction": false
     },
     "hyprland/workspaces": {
@@ -172,7 +201,6 @@
         "interval": 10,
         "rotate": 0,
         "on-click": "sh ~/bin/battery.sh --notify",
-        "tooltip": false
     },
     "custom/brightness": {
         "exec": "sh ~/bin/brightness.sh --status --color \"#61afef\" | cat",
@@ -268,7 +296,7 @@
     "network": {
         "interface": "wlp0s20f3", // (Optional) To force the use of this interface  "format-wifi": "  {essid}",
         "format": "⚠ Disabled",
-//        "format-wifi": "  {essid}",
+        //        "format-wifi": "  {essid}",
         "format-wifi": "{icon} {essid}",
         "format-ethernet": "󰈀 {ifname}",
         "format-linked": "{ifname} (No IP)",
@@ -280,7 +308,7 @@
             "󰤟 ", // 21-40%
             "󰤢 ", // 41-60%
             "󰤥 ", // 61-80%
-            "󰤨 "  // 81-100%
+            "󰤨 " // 81-100%
         ],
         "tooltip-format-wifi": "  {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
         "tooltip-format-ethernet": "󰈀 {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
@@ -341,4 +369,3 @@
         "escape": true
     }
 }
-
