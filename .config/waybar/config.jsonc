@@ -317,7 +317,7 @@
         "on-click": "kitty --class network-floating -e gazelle"
     },
     "custom/power": {
-        "on-click": "bin/wofi-power-menu.sh",
+        "on-click": "~/bin/wofi-power-menu.sh",
         "format": "<span color=\"#f38ba8\">  </span>",
         "rotate": 0,
         "tooltip": false

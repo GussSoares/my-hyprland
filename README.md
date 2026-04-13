@@ -21,13 +21,23 @@ This setup is designed for Arch Linux (or Arch-based distributions) with Hyprlan
 Install the required packages using pacman:
 
 ```bash
-sudo pacman -S hyprland waybar rofi alacritty foot kitty swaync cava btop fastfetch fish starship nwg-dock-hyprland swww imagemagick superfile wireplumber bluetui lazydocker upower bluez-utils brightnessctl grim slurp wl-clipboard networkmanager polkit-kde-agent xdg-desktop-portal-hyprland swaylock pamixer tar unzip rofimoji hyprpicker xcolor dunst python-psutil python-gputil pyamdgpuinfo lolcat
+sudo pacman -S hyprland waybar rofi alacritty foot kitty swaync cava btop fastfetch fish starship nwg-dock-hyprland imagemagick superfile wireplumber bluetui lazydocker upower bluez-utils brightnessctl grim slurp wl-clipboard networkmanager polkit-kde-agent xdg-desktop-portal-hyprland swaylock pamixer tar unzip rofimoji hyprpicker xcolor dunst python-psutil python-gputil pyamdgpuinfo lolcat power-profiles-daemon gazelle awww
 ```
 
 For Python dependencies (for system-info.py):
 ```bash
 pip install psutil gputil pyamdgpuinfo
 ```
+
+**Important**: The Waybar configuration expects Python with specific packages to be available via a pyenv virtual environment. You can either:
+1. Create a pyenv environment named `hyprland`:
+   ```bash
+   pyenv install 3.12  # or your preferred Python version
+   pyenv virtualenv 3.12 hyprland
+   pyenv activate hyprland
+   pip install psutil gputil pyamdgpuinfo
+   ```
+2. Or modify the Waybar config to use your Python path instead of `~/.pyenv/versions/hyprland/bin/python3`
 
 #### Setup Steps
 1. Clone or download this repository to your home directory or a temporary location.
@@ -54,6 +64,28 @@ pip install psutil gputil pyamdgpuinfo
 6. For Waybar, ensure it's launched in your Hyprland config (check ~/.config/hypr/hyprland.conf).
 
 7. Test the scripts: Run `~/bin/battery.sh` or other scripts to verify functionality.
+
+#### Waybar-Specific Configuration
+The Waybar setup has additional requirements and customizations needed:
+
+1. **Network Interface**: Edit `~/.config/waybar/config.jsonc` and change the hardcoded interface `"wlp0s20f3"` to match your network interface:
+   ```bash
+   ip link show  # to find your interface name
+   # Then replace in the config
+   ```
+
+2. **Waybar Modules** require:
+   - `waybar-module-pacman-updates`: for package updates indicator
+   - `swaync`: for notification center (alternative to mako)
+   - `gazelle` or `nmtui`: for network management
+   - `kitty` or your preferred terminal for floating windows
+
+3. **Power Menu**: The power menu script path may need adjustment. Ensure `bin/wofi-power-menu.sh` or create a similar script.
+
+4. **Optional Applications** (for Waybar functionality):
+   - `blueman`: Bluetooth manager (or use `bluetooth-menu.sh`)
+   - `wiremix`: PipeWire mixer for advanced audio control
+   - `lazydocker`: Container management
 
 #### Additional Notes
 - Some scripts require specific hardware (e.g., battery scripts need a battery).
