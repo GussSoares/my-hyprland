@@ -8,8 +8,6 @@
     "gtk-layer-shell": true,
     "reload_style_on_change": true,
     "tooltip": true,
-
-    // Modules Left
     "modules-left": [
         "custom/l_end",
         "hyprland/workspaces",
@@ -17,18 +15,14 @@
         "custom/l_end",
         "wlr/taskbar",
         "custom/r_end",
-        "custom/padd",
-        "custom/l_end",
-        "custom/cava",
-        "custom/r_end"
+        "custom/padd"
+        //"custom/l_end",
+        //"custom/cava",
+        //"custom/r_end"
     ],
-
-    // Modules Center
     "modules-center": [
         "group/system-info"
     ],
-
-    // Modules Right
     "modules-right": [
         "group/system-levels",
         "custom/l_end",
@@ -36,24 +30,28 @@
         "custom/r_end",
         "custom/l_end",
         "hyprland/language",
-        "custom/numlock",
+        //        "custom/numlock",
+        "keyboard-state",
         "custom/r_end",
         "group/control-panel",
         "custom/padd"
     ],
-
     "group/system-info": {
         "orientation": "horizontal",
         "modules": [
-            "custom/cpu",
-            "custom/ram",
-            "custom/gpu"
+            // "custom/cpu",
+            "temperature",
+            // "custom/ram",
+            "cpu",
+            "memory"
+            // "custom/gpu"
         ]
     },
     "group/system-levels": {
         "orientation": "horizontal",
         "modules": [
             "custom/brightness",
+            "power-profiles-daemon",
             "custom/battery",
             "custom/volume",
             "custom/microphone"
@@ -62,18 +60,79 @@
     "group/control-panel": {
         "orientation": "horizontal",
         "modules": [
+            "group/tray-drawer",
             "custom/updates",
             // "custom/do-not-disturb",
             // "custom/vpn",
-            // "custom/bluetooth",
-            "tray",
+            "custom/bluetooth",
+            // "network",
+            "group/network-drawer",
+            "custom/notification",
             "custom/power"
         ]
     },
+    "group/tray-drawer": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "not-tray",
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "custom/tray-icon", // Um ícone fixo (ex: 󰅀)
+            "tray" // O tray que vai expandir
+        ]
+    },
+    "custom/tray-icon": {
+        "format": "  ", // Um ícone de seta ou o que preferir
+        "tooltip": false
+    },
+    "group/network-drawer": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "network-text",
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "network",      // O ícone dinâmico (sempre visível)
+            "network#name"  // O nome da rede (aparece ao deslizar)
+        ]
+    },
+
+    "network": {
+        "interface": "wlp0s20f3",
+        "format-wifi": "{icon}", // Apenas o ícone aqui
+        "format-ethernet": "󰈀 ",
+        "format-disconnected": "󰤮 ",
+        "format-icons": ["󰤯 ", "󰤟 ", "󰤢 ", "󰤥 ", "󰤨 "],
+        "tooltip-format-wifi": " {ifname} @ {essid}\nIP: {ipaddr}\nSinal: {signalStrength}%\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
+        "on-click": "kitty --class network-floating -e gazelle"
+    },
+
+    "network#name": {
+        "interface": "wlp0s20f3",
+        "format-wifi": "{essid} ", // Apenas o texto aqui
+        "format-ethernet": "{ifname}",
+        "format-disconnected": "Disconnected",
+        "tooltip": false,
+        "on-click": "kitty --class network-floating -e gazelle"
+    },
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip-format": "Perfil: {profile}\nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+            "default": "<span color='#f5c2e7'> </span>",
+            "performance": "<span color='#f38ba8'> </span>", // Ícone de raio para performance
+            "balanced": "<span color='#89b4fa'>  </span>", // Ícone de balança para equilibrado
+            "power-saver": "<span color='#a6e3a1'>  </span>" // Ícone de folha para economia
+        }
+    },
     "tray": {
-        "icon-size": 18,
+        "icon-size": 17,
         "rotate": 0,
-        "spacing": 10,
+        "spacing": 5,
         "reverse-direction": false
     },
     "hyprland/workspaces": {
@@ -110,23 +169,58 @@
             "firefoxdeveloperedition": "firefox-developer-edition"
         }
     },
+    "cpu": {
+        "interval": 10, // Aumentar o intervalo para 5 ou 10 segundos economiza muita CPU
+        "format": "  {usage}% ",
+        "states": {
+            "warning": 70,
+            "critical": 90
+        }
+    },
+    "memory": {
+        "interval": 10,
+        "format": "󰾆 {percentage}% ", // Ícone para < 40%
+        "tooltip-format": "󰾆 Used: {used} GB ({percentage}%)\n󰾆 Total: {total} GB\n󰾆 Free: {avail} GB",
+        "format-medium": "󰾅 {percentage}% ",
+        "format-high": "󰓅 {percentage}% ",
+        "format-critical": " {percentage}% ",
+        "states": {
+            "low": 0,      // Inicia em 0% (será sobrescrito pelos de cima)
+            "medium": 40,  // Entre 40% e 69%
+            "high": 70,    // Entre 70% e 89%
+            "critical": 90 // 90% ou mais
+        }
+    },
+    "temperature": {
+        "interval": 10,
+        "thermal-zone": 2, // Pode variar (0, 1, 2...). Verifique em /sys/class/thermal/
+        "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input", // Caminho direto é mais estável
+        "critical-threshold": 80,
+        "format-critical": "{icon} {temperatureC}°C ",
+        "format": "{icon} {temperatureC}°C ",
+        "format-icons": ["", "", ""],
+        "states": {
+            "warning": 65,
+            "critical": 80
+        }
+    },
     "custom/cpu": {
         "exec": "~/.pyenv/versions/hyprland/bin/python3  ~/bin/system-info.py --cpu --normal-color \"#f5c2e7\" --critical-color \"#f38ba8\" | cat",
         // "on-click": "~/.pyenv/versions/hyprland/bin/python3  ~/bin/system-info.py --cpu --click",
-        "on-click": "foot -e btop",
+        "on-click": "kitty --class btop-floating -e btop",
         "return-type": "json",
         "format": "{}  ",
         "rotate": 0,
-        "interval": 10,
+        "interval": 15,
         "tooltip": true
     },
     "custom/ram": {
         "exec": "~/.pyenv/versions/hyprland/bin/python3  ~/bin/system-info.py --ram --normal-color \"#fab387\" --critical-color \"#f38ba8\" | cat",
-        "on-click": "foot -e btop",
+        "on-click": "kitty --class btop-floating -e btop",
         "return-type": "json",
         "format": "{}  ",
         "rotate": 0,
-        "interval": 10,
+        "interval": 15,
         "tooltip": true
     },
     "custom/gpu": {
@@ -176,8 +270,7 @@
         "format": "{}  ",
         "interval": 10,
         "rotate": 0,
-        "on-click": "sh ~/bin/battery.sh --notify",
-        "tooltip": false
+        "on-click": "sh ~/bin/battery.sh --notify"
     },
     "custom/brightness": {
         "exec": "sh ~/bin/brightness.sh --status --color \"#61afef\" | cat",
@@ -198,7 +291,8 @@
         "interval": 2,
         "rotate": 0,
         // "on-click": "sh ~/bin/volume.sh --device output --action toggle",
-        "on-click": "GDK_BACKEND=x11 pavucontrol",
+        // "on-click": "GDK_BACKEND=x11 pavucontrol",
+        "on-click": "kitty --class volume-floating -e wiremix --tab output",
         "on-scroll-up": "sh ~/bin/volume.sh --device output --action increase",
         "on-scroll-down": "sh ~/bin/volume.sh --device output --action decrease",
         "scroll-step": 5,
@@ -211,18 +305,26 @@
         "interval": 5,
         "rotate": 0,
         // "on-click": "sh ~/bin/volume.sh --device input --action toggle",
-        "on-click": "GDK_BACKEND=x11  pavucontrol",
+        //"on-click": "GDK_BACKEND=x11  pavucontrol",
+        "on-click": "kitty --class volume-floating -e wiremix --tab input",
         "on-scroll-up": "sh ~/bin/volume.sh --device input --action increase",
         "on-scroll-down": "sh ~/bin/volume.sh --device input --action decrease",
         "scroll-step": 5,
         "tooltip": false
     },
     "hyprland/language": {
-        "format": "{short} {variant}",
-        "rotate": 0,
-        "min-length": 2,
-        "tooltip": false,
+        "format": "  {}",
+        "format-en": "US",
+        "format-pt": "BR",
         "on-click": "sh ~/bin/toggle_layout.sh"
+    },
+    "keyboard-state": {
+        "numlock": true,
+        "format": " {icon} ",
+        "format-icons": {
+            "locked": "",
+            "unlocked": "󱧓 "
+        }
     },
     "custom/numlock": {
         "exec": "sh ~/bin/numlock.sh",
@@ -239,8 +341,8 @@
             "updated": "󰂪 "
         },
         "exec-if": "which waybar-module-pacman-updates",
-        "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 7200",
-        "on-click": "foot -e update"
+        "exec": "waybar-module-pacman-updates --interval-seconds 60 --network-interval-seconds 7200",
+        "on-click": "kitty --class update-floating -e update"
     },
     "custom/do-not-disturb": {
         "exec": "sh ~/bin/do-not-disturb.sh --status --disabled-color \"#f38ba8\" --enabled-color \"#a6e3a1\" | cat",
@@ -264,26 +366,33 @@
         "exec": "sh ~/bin/bluetooth.sh",
         "interval": 3,
         "rotate": 0,
-        "on-click": "blueman-manager",
-        "tooltip": false
+        // "on-click": "blueman-manager",
+        "on-click": "kitty --class bluetui-floating -e bluetui",
+        "on-click-right": "bluetoothctl power $(bluetoothctl show | grep -q \"Powered: yes\" && echo off || echo on)",
+        "tooltip": false,
+        "format": {}
     },
-    "custom/network": {
-        //"interface": "wlp0s20f3", // (Optional) To force the use of this interface  "format-wifi": "  {essid}",
-        "format": "⚠Disabled",
-        "format-wifi": "",
-        "format-ethernet": "",
-        "format-linked": "{ifname} (No IP)",
-        "format-disconnected": "⚠Disabled",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}",
-        "family": "ipv4",
-        "tooltip-format-wifi": "  {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
-        "tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
-        //"min-length": 2,
-        //"max-length": 2,
-        "on-click": "nm-connection-editor"
-    },
+    // "network": {
+    //     "interface": "wlp0s20f3", // (Optional) To force the use of this interface  "format-wifi": "  {essid}",
+    //     "format": "⚠ Disabled",
+    //     "format-wifi": "{icon} {essid}",
+    //     "format-ethernet": "󰈀 {ifname}",
+    //     "format-linked": "{ifname} (No IP)",
+    //     "format-disconnected": "󰤮 Disabled",
+    //     "family": "ipv4",
+    //     "format-icons": [
+    //         "󰤯 ", // 0-20%
+    //         "󰤟 ", // 21-40%
+    //         "󰤢 ", // 41-60%
+    //         "󰤥 ", // 61-80%
+    //         "󰤨 " // 81-100%
+    //     ],
+    //     "tooltip-format-wifi": "  {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
+    //     "tooltip-format-ethernet": "󰈀 {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
+    //     "on-click": "kitty --class network-floating -e gazelle"
+    // },
     "custom/power": {
-        "on-click": "nwgbar",
+        "on-click": "~/bin/wofi-power-menu.sh",
         "format": "<span color=\"#f38ba8\">  </span>",
         "rotate": 0,
         "tooltip": false
@@ -308,9 +417,35 @@
         "interval": "once",
         "tooltip": false
     },
+    // "custom/cava": {
+    //     "format": "{}",
+    //     "on-click": "kitty --class cava-floating -e cava",
+    //     "exec": "sh ~/bin/cava.sh",
+    //     "tooltip": false
+    // },
     "custom/cava": {
+        "exec": "cava -p ~/.config/cava/config_waybar | sed -u 's/;//g;s/0/ /g;s/1/▂/g;s/2/▃/g;s/3/▄/g;s/4/▅/g;s/5/▆/g;s/6/▇/g;s/7/█/g'",
         "format": "{}",
-        "on-click": "foot -e cava",
-        "exec": "sh ~/bin/cava.sh"
+        "on-click": "kitty --class cava-floating -e cava"
+    },
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+            "notification": " 󰂚<span foreground='red'><sup> </sup></span>",
+            "none": " 󰂚 ",
+            "dnd-notification": " 󰂛<span foreground='red'><sup> </sup></span>",
+            "dnd-none": " 󰂛 ",
+            "inhibited-notification": " <span foreground='red'><sup> </sup></span>",
+            "inhibited-none": "  ",
+            "dnd-inhibited-notification": " <span foreground='red'><sup> </sup></span>",
+            "dnd-inhibited-none": " 󰂛 "
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
     }
 }

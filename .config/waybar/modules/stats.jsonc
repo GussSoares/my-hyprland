@@ -1,0 +1,75 @@
+{
+    "group/system-info": {
+        "orientation": "horizontal",
+        "modules": [
+            // "custom/cpu",
+            // "custom/ram",
+            // "custom/gpu",
+            "temperature",
+            "cpu",
+            "memory"
+        ]
+    },
+    "cpu": {
+        "interval": 10,
+        "format": "  {usage}% ",
+        "states": {
+            "warning": 70,
+            "critical": 90
+        }
+    },
+    "memory": {
+        "interval": 10,
+        "format": "󰾆 {percentage}% ",
+        "tooltip-format": "󰾆 Used: {used} GB ({percentage}%)\n󰾆 Total: {total} GB\n󰾆 Free: {avail} GB",
+        "format-medium": "󰾅 {percentage}% ",
+        "format-high": "󰓅 {percentage}% ",
+        "format-critical": " {percentage}% ",
+        "states": {
+            "low": 0,
+            "medium": 40,
+            "high": 70,
+            "critical": 90
+        }
+    },
+    "temperature": {
+        "interval": 10,
+        "thermal-zone": 2,
+        "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        "format-critical": "{icon} {temperatureC}°C ",
+        "format": "{icon} {temperatureC}°C ",
+        "format-icons": ["", "", ""],
+        "states": {
+            "warning": 65,
+            "critical": 80
+        }
+    },
+    "custom/cpu": {
+        "exec": "~/.pyenv/versions/hyprland/bin/python3  ~/bin/system-info.py --cpu --normal-color \"#f5c2e7\" --critical-color \"#f38ba8\" | cat",
+        "on-click": "kitty --class btop-floating -e btop",
+        "return-type": "json",
+        "format": "{}  ",
+        "rotate": 0,
+        "interval": 15,
+        "tooltip": true
+    },
+    "custom/ram": {
+        "exec": "~/.pyenv/versions/hyprland/bin/python3  ~/bin/system-info.py --ram --normal-color \"#fab387\" --critical-color \"#f38ba8\" | cat",
+        "on-click": "kitty --class btop-floating -e btop",
+        "return-type": "json",
+        "format": "{}  ",
+        "rotate": 0,
+        "interval": 15,
+        "tooltip": true
+    },
+    "custom/gpu": {
+        "exec": "~/.pyenv/versions/hyprland/bin/python3  ~/bin/system-info.py --gpu --normal-color \"#f5e0dc\" --critical-color \"#f38ba8\" | cat",
+        "on-click": "~/.pyenv/versions/hyprland/bin/python3  ~/bin/system-info.py --gpu --click",
+        "return-type": "json",
+        "format": "{}",
+        "rotate": 0,
+        "interval": 25,
+        "tooltip": true
+    }
+}

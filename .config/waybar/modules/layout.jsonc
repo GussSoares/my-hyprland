@@ -1,0 +1,23 @@
+{
+    "hyprland/language": {
+        "format": "  {}",
+        "format-en": "US",
+        "format-pt": "BR",
+        "on-click": "sh ~/bin/toggle_layout.sh"
+    },
+    "keyboard-state": {
+        "numlock": true,
+        "format": " {icon} ",
+        "format-icons": {
+            "locked": "",
+            "unlocked": "󱧓 "
+        }
+    },
+    "custom/numlock": {
+        "exec": "sh ~/bin/numlock.sh",
+        "format": " {} ",
+        "rotate": 0,
+        "tooltip": false,
+        "interval": 2
+    }
+}

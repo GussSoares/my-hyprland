@@ -68,7 +68,7 @@ def get_cpu_info(label_mode: str):
 			cpu_name = line.split(":")[1].strip()
 			break
 
-	cpu_percent = int(psutil.cpu_percent(interval=1))
+	cpu_percent = int(psutil.cpu_percent(interval=None))
 
 	try:
 		cpu_temp = int(psutil.sensors_temperatures()['coretemp'][0].current)

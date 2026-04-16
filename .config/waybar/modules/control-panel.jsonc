@@ -1,0 +1,124 @@
+{
+    "group/control-panel": {
+        "orientation": "horizontal",
+        "modules": [
+            "group/tray-drawer",
+            "custom/updates",
+            // "custom/do-not-disturb",
+            // "custom/vpn",
+            "custom/bluetooth",
+            "group/network-drawer",
+            "custom/notification",
+            "custom/power"
+        ]
+    },
+    "group/tray-drawer": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "not-tray",
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "custom/tray-icon",
+            "tray"
+        ]
+    },
+    "custom/tray-icon": {
+        "format": "  ",
+        "tooltip": false
+    },
+    "custom/updates": {
+        "format": "{} {icon}",
+        "return-type": "json",
+        "format-icons": {
+            "has-updates": "󱍷 ",
+            "updated": "󰂪 "
+        },
+        "exec-if": "which waybar-module-pacman-updates",
+        "exec": "waybar-module-pacman-updates --interval-seconds 60 --network-interval-seconds 7200",
+        "on-click": "kitty --class update-floating -e update"
+    },
+    "custom/bluetooth": {
+        "exec": "sh ~/bin/bluetooth.sh",
+        "interval": 3,
+        "rotate": 0,
+        "on-click": "kitty --class bluetui-floating -e bluetui",
+        "on-click-right": "bluetoothctl power $(bluetoothctl show | grep -q \"Powered: yes\" && echo off || echo on)",
+        "tooltip": false,
+        "format": {}
+    },
+    "group/network-drawer": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "network-text",
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "network",
+            "network#name"
+        ]
+    },
+    "network": {
+        "interface": "wlp0s20f3",
+        "format-wifi": "{icon}",
+        "format-ethernet": "󰈀 ",
+        "format-disconnected": "󰤮 ",
+        "format-icons": ["󰤯 ", "󰤟 ", "󰤢 ", "󰤥 ", "󰤨 "],
+        "tooltip-format-wifi": " {ifname} @ {essid}\nIP: {ipaddr}\nSinal: {signalStrength}%\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
+        "on-click": "kitty --class network-floating -e gazelle"
+    },
+    "network#name": {
+        "interface": "wlp0s20f3",
+        "format-wifi": "{essid} ",
+        "format-ethernet": "{ifname}",
+        "format-disconnected": "Disconnected",
+        "tooltip": false,
+        "on-click": "kitty --class network-floating -e gazelle"
+    },
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+            "notification": " 󰂚<span foreground='red'><sup> </sup></span>",
+            "none": " 󰂚 ",
+            "dnd-notification": " 󰂛<span foreground='red'><sup> </sup></span>",
+            "dnd-none": " 󰂛 ",
+            "inhibited-notification": " <span foreground='red'><sup> </sup></span>",
+            "inhibited-none": "  ",
+            "dnd-inhibited-notification": " <span foreground='red'><sup> </sup></span>",
+            "dnd-inhibited-none": " 󰂛 "
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },
+    "custom/power": {
+        "on-click": "~/bin/wofi-power-menu.sh",
+        "format": "<span color=\"#f38ba8\">  </span>",
+        "rotate": 0,
+        "tooltip": false
+    },
+    "custom/do-not-disturb": {
+        "exec": "sh ~/bin/do-not-disturb.sh --status --disabled-color \"#f38ba8\" --enabled-color \"#a6e3a1\" | cat",
+        "return-type": "raw",
+        "format": "{} ",
+        "interval": 5,
+        "rotate": 0,
+        "on-click": "sh ~/bin/do-not-disturb.sh",
+        "tooltip": false
+    },
+    "custom/vpn": {
+        "exec": "sh ~/bin/rofi-menus/vpn-manager.sh --status --disabled-color \"#f38ba8\" --enabled-color \"#a6e3a1\" | cat",
+        "return-type": "raw",
+        "format": "{} ",
+        "interval": 3,
+        "rotate": 0,
+        "on-click": "sh ~/bin/rofi-menus/vpn-manager.sh",
+        "tooltip": false
+    }
+}

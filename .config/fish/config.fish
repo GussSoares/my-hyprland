@@ -203,6 +203,10 @@ alias rip 'expac --timefmt="%Y-%m-%d %T" "%l\t%n %v" | sort | tail -200 | nl'
 ## clear System
 alias clean_system="sudo pacman -Rs (pacman -Qdtq); sudo paccache -rk1; sudo journalctl --vacuum-time=3d; yay -Sc"
 
+# code-insider
+alias code='code-insiders'
+
+
 # pyenv
 set -x PATH "~/.pyenv/bin" $PATH
 status --is-interactive; and pyenv init - | source

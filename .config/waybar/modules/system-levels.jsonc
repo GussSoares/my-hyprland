@@ -1,0 +1,67 @@
+{
+    "group/system-levels": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/brightness",
+            "power-profiles-daemon",
+            "custom/battery",
+            "custom/volume",
+            "custom/microphone"
+        ]
+    },
+    "custom/brightness": {
+        "exec": "sh ~/bin/brightness.sh --status --color \"#61afef\" | cat",
+        "return-type": "raw",
+        "format": "{}  ",
+        "interval": 2,
+        "rotate": 0,
+        "on-scroll-up": "sh ~/bin/brightness.sh --up",
+        "on-scroll-down": "sh ~/bin/brightness.sh --down",
+        "on-click-left": "sh ~/bin/brightness.sh --max",
+        "on-click-right": "sh ~/bin/brightness.sh --min",
+        "tooltip": false
+    },
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip-format": "Perfil: {profile}\nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+            "default": "<span color='#f5c2e7'> </span>",
+            "performance": "<span color='#f38ba8'> </span>",
+            "balanced": "<span color='#89b4fa'>  </span>",
+            "power-saver": "<span color='#a6e3a1'>  </span>"
+        }
+    },
+    "custom/battery": {
+        "exec": "sh ~/bin/battery.sh --status --discharged-color \"#f38ba8\" --charged-color \"#a6e3a1\" | cat",
+        "return-type": "raw",
+        "format": "{}  ",
+        "interval": 10,
+        "rotate": 0,
+        "on-click": "sh ~/bin/battery.sh --notify"
+    },
+    "custom/volume": {
+        "exec": "sh ~/bin/volume.sh --device output --status --disabled-color \"#f38ba8\" --enabled-color \"#a6e3a1\" | cat",
+        "return-type": "raw",
+        "format": "{}  ",
+        "interval": 2,
+        "rotate": 0,
+        "on-click": "kitty --class volume-floating -e wiremix --tab output",
+        "on-scroll-up": "sh ~/bin/volume.sh --device output --action increase",
+        "on-scroll-down": "sh ~/bin/volume.sh --device output --action decrease",
+        "scroll-step": 5,
+        "tooltip": false
+    },
+    "custom/microphone": {
+        "exec": "sh ~/bin/volume.sh --device input --status --disabled-color \"#f38ba8\" --enabled-color \"#a6e3a1\" | cat",
+        "return-type": "raw",
+        "format": "{}",
+        "interval": 5,
+        "rotate": 0,
+        "on-click": "kitty --class volume-floating -e wiremix --tab input",
+        "on-scroll-up": "sh ~/bin/volume.sh --device input --action increase",
+        "on-scroll-down": "sh ~/bin/volume.sh --device input --action decrease",
+        "scroll-step": 5,
+        "tooltip": false
+    }
+}

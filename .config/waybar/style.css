@@ -119,6 +119,7 @@ tooltip {
 #language,
 #custom-cava,
 #custom-numlock,
+#keyboard-state,
 #custom-l_end,
 #custom-r_end {
     color: @main-fg;
@@ -185,4 +186,54 @@ tooltip {
 /* Opcional: Efeito quando está buscando rede */
 #network.scanning {
     color: #cba6f7; /* Mauve */
+}
+
+/* Cor padrão (abaixo de 70%) */
+#cpu, #memory {
+    color: #a6e3a1; /* Verde (ex: Catppuccin Green) */
+    background: transparent;
+}
+
+/* Estado de alerta (70% - 89%) */
+#cpu.warning, #memory.warning {
+    color: #f9e2af; /* Amarelo */
+}
+
+/* Estado crítico (90%+) */
+#cpu.critical, #memory.critical {
+    color: #f38ba8; /* Vermelho */
+    font-weight: bold;
+}
+
+/* Temperatura Normal (Abaixo de 65°C) */
+#temperature {
+    color: #89b4fa; /* Azul (Frio/Normal) */
+}
+
+/* Temperatura em Alerta (65°C - 79°C) */
+#temperature.warning {
+    color: #fab387; /* Laranja (Aquecendo) */
+}
+
+/* Temperatura Crítica (80°C+) */
+#temperature.critical {
+    color: #f38ba8; /* Vermelho (Perigo) */
+    font-weight: bold;
+}
+
+#memory {
+    color: #a6e3a1; /* Verde para < 40% */
+}
+
+#memory.medium {
+    color: #89b4fa; /* Azul/Ciano para 40%-69% */
+}
+
+#memory.high {
+    color: #fab387; /* Laranja para 70%-89% */
+}
+
+#memory.critical {
+    color: #f38ba8; /* Vermelho para 90%+ */
+    font-weight: bold;
 }

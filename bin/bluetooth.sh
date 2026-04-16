@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Cores (ajuste conforme seu tema)
-COLOR_OFF="#585b70"     # Cinza
-COLOR_ON="#89b4fa"      # Azul
+COLOR_OFF="#f38ba8"        # Vermelho
+COLOR_ON="#89b4fa"         # Azul
 COLOR_CONNECTED="#a6e3a1"  # Verde
 
 # Ícones Nerd Font
