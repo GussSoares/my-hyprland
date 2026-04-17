@@ -107,7 +107,7 @@ toggle_vpn() {
         rm -f "$PID_FILE"
         notify-send "OpenVPN" "Disconnected from $VPN"
     else
-        PASSWORD=$(rofi -dmenu -password -p "Enter the sudo password:")
+        PASSWORD=$(wofi --normal-window --show dmenu -password -p "Enter the sudo password:")
 
         if [ $? -ne 0 ]; then
             notify-send "OpenVPN" "Connection canceled"
@@ -130,7 +130,7 @@ vpn_action_menu() {
     if [ -f "$PID_FILE" ]; then
         ACTIONS="  Disconnect\n  Delete the config file"
     fi
-    ACTION=$(echo -e "$ACTIONS" | rofi -dmenu -p "Action with $VPN:")
+    ACTION=$(echo -e "$ACTIONS" | wofi --normal-window --show dmenu -p "Action with $VPN:")
     if [ $? -eq 0 ]; then
         case "$ACTION" in
             "  Connect"|"  Disconnect")
@@ -174,7 +174,7 @@ show_rofi_menu() {
         done
     fi
     IFS=$'\n' # Устанавливаем внутренний разделитель полей в новую строку
-    SELECTED_VPN=$(printf "%s\n" "${MENU_ITEMS[@]}" | rofi -dmenu -p "Select VPN:" -matching fuzzy)
+    SELECTED_VPN=$(printf "%s\n" "${MENU_ITEMS[@]}" | wofi --normal-window --show dmenu -p "Select VPN:" -matching fuzzy)
     if [ $? -ne 0 ]; then
         return
     fi

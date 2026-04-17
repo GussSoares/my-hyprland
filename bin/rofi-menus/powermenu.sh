@@ -1,6 +1,6 @@
 #!/bin/env bash
 
-choice=$(printf "  Lock\n󰍃  Logout\n󰒲  Suspend\n  Reboot\n  Shutdown" | rofi -dmenu)
+choice=$(printf "  Lock\n󰍃  Logout\n󰒲  Suspend\n  Reboot\n  Shutdown" | wofi --normal-window --show dmenu)
 
 case "$choice" in
   "  Lock") sh $HOME/bin/screen-lock.sh ;;

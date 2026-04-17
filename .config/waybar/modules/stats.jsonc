@@ -13,6 +13,7 @@
     "cpu": {
         "interval": 10,
         "format": "  {usage}% ",
+        "on-click": "kitty --class btop-floating -e btop",
         "states": {
             "warning": 70,
             "critical": 90
@@ -25,6 +26,7 @@
         "format-medium": "󰾅 {percentage}% ",
         "format-high": "󰓅 {percentage}% ",
         "format-critical": " {percentage}% ",
+        "on-click": "kitty --class btop-floating -e btop",
         "states": {
             "low": 0,
             "medium": 40,
@@ -40,6 +42,7 @@
         "format-critical": "{icon} {temperatureC}°C ",
         "format": "{icon} {temperatureC}°C ",
         "format-icons": ["", "", ""],
+        "on-click": "kitty --class btop-floating -e btop",
         "states": {
             "warning": 65,
             "critical": 80
@@ -64,8 +67,8 @@
         "tooltip": true
     },
     "custom/gpu": {
-        "exec": "~/.pyenv/versions/hyprland/bin/python3  ~/bin/system-info.py --gpu --normal-color \"#f5e0dc\" --critical-color \"#f38ba8\" | cat",
-        "on-click": "~/.pyenv/versions/hyprland/bin/python3  ~/bin/system-info.py --gpu --click",
+        "exec": "~/.pyenv/versions/hyprland/bin/python3 ~/bin/system-info.py --gpu --normal-color \"#f5e0dc\" --critical-color \"#f38ba8\" | cat",
+        "on-click": "~/.pyenv/versions/hyprland/bin/python3 ~/bin/system-info.py --gpu --click",
         "return-type": "json",
         "format": "{}",
         "rotate": 0,

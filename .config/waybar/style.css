@@ -76,7 +76,7 @@ tooltip {
     padding-left: 3px;
     padding-right: 3px;
     margin-right: 0px;
-    color: @wb-color;
+    color: @wb-act-fg;
     animation: tb_normal 20s ease-in-out 1;
 }
 
@@ -113,6 +113,7 @@ tooltip {
 
 /* #tray, */
 #workspaces,
+#battery,
 #taskbar,
 #clock,
 #idle_inhibitor,
@@ -236,4 +237,35 @@ tooltip {
 #memory.critical {
     color: #f38ba8; /* Vermelho para 90%+ */
     font-weight: bold;
+}
+
+#battery {
+    color: #A0E8A2; /* Seu CHARGED_COLOR */
+}
+
+/* Quando estiver carregando */
+#battery.charging, #battery.plugged {
+    color: #A0E8A2;
+}
+
+/* Quando atingir 30% (Warning) */
+#battery.warning:not(.charging) {
+    color: #e6b450; /* Um laranja intermediário */
+}
+
+/* Quando atingir 15% (Critical - Seu DISCHARGED_COLOR) */
+#battery.critical:not(.charging) {
+    color: #D35F5D;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes blink {
+    to {
+        background-color: #D35F5D;
+        color: #1e1e2e;
+    }
 }

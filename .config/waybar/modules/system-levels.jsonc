@@ -3,8 +3,9 @@
         "orientation": "horizontal",
         "modules": [
             "custom/brightness",
-            "power-profiles-daemon",
-            "custom/battery",
+            // "power-profiles-daemon",
+            // "custom/battery",
+            "battery",
             "custom/volume",
             "custom/microphone"
         ]
@@ -21,16 +22,42 @@
         "on-click-right": "sh ~/bin/brightness.sh --min",
         "tooltip": false
     },
-    "power-profiles-daemon": {
-        "format": "{icon}",
-        "tooltip-format": "Perfil: {profile}\nDriver: {driver}",
-        "tooltip": true,
-        "format-icons": {
-            "default": "<span color='#f5c2e7'> </span>",
-            "performance": "<span color='#f38ba8'> </span>",
-            "balanced": "<span color='#89b4fa'>  </span>",
-            "power-saver": "<span color='#a6e3a1'>  </span>"
-        }
+    // "power-profiles-daemon": {
+    //     "format": "{icon}",
+    //     "tooltip-format": "Perfil: {profile}\nDriver: {driver}",
+    //     "tooltip": true,
+    //     "format-icons": {
+    //         "default": "<span color='#f5c2e7'> </span>",
+    //         "performance": "<span color='#f38ba8'> </span>",
+    //         "balanced": "<span color='#89b4fa'>  </span>",
+    //         "power-saver": "<span color='#a6e3a1'> </span>"
+    //     }
+    // },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}% ",
+        "format-charging": "󰂄 {capacity}% ",
+        "format-plugged": "󰂄 {capacity}% ",
+        "format-alt": "{icon} {time} ",
+        "format-full": "󰁹 {capacity}% ",
+        "format-icons": [
+            "󰂎",
+            "󰁺",
+            "󰁼",
+            "󰁽",
+            "󰁾",
+            "󰁿",
+            "󰂀",
+            "󰂁",
+            "󰂂",
+            "󰁹"
+        ],
+        "tooltip-format": "{timeTo}\nSaúde: {health}%",
+        "interval": 30,
+        "on-click": "sh ~/bin/battery.sh --notify"
     },
     "custom/battery": {
         "exec": "sh ~/bin/battery.sh --status --discharged-color \"#f38ba8\" --charged-color \"#a6e3a1\" | cat",

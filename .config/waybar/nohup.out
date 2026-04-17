@@ -14,3 +14,218 @@
 [2026-04-16 17:52:26.601] [info] Loading persistent workspaces from Hyprland workspace rules
 [2026-04-16 17:52:26.753] [info] Found device AT Translated Set 2 keyboard at '/dev/input/event4'
 [2026-04-16 17:52:27.033] [info] Bar configured (width: 1920, height: 34) for output: eDP-1
+Gdk-Message: 18:00:05.980: Error reading events from display: Broken pipe
+[2026-04-16 18:23:19.133] [info] Using configuration file /home/gustavo/.config/waybar/config.jsonc
+[2026-04-16 18:23:19.133] [info] Including resource file: ~/.config/waybar/modules/paddings.jsonc
+[2026-04-16 18:23:19.133] [info] Including resource file: ~/.config/waybar/modules/workspaces.jsonc
+[2026-04-16 18:23:19.133] [info] Including resource file: ~/.config/waybar/modules/control-panel.jsonc
+[2026-04-16 18:23:19.134] [info] Including resource file: ~/.config/waybar/modules/datetime.jsonc
+[2026-04-16 18:23:19.134] [info] Including resource file: ~/.config/waybar/modules/layout.jsonc
+[2026-04-16 18:23:19.134] [info] Including resource file: ~/.config/waybar/modules/stats.jsonc
+[2026-04-16 18:23:19.135] [info] Including resource file: ~/.config/waybar/modules/system-levels.jsonc
+[2026-04-16 18:23:19.135] [info] Including resource file: ~/.config/waybar/modules/taskbar.jsonc
+[2026-04-16 18:23:19.140] [info] Discovered appearance 'dark'
+[2026-04-16 18:23:19.199] [info] Using CSS file /home/gustavo/.config/waybar/style.css
+[2026-04-16 18:23:19.209] [info] Hyprland IPC starting
+[2026-04-16 18:23:19.210] [info] Loading persistent workspaces from Waybar config
+[2026-04-16 18:23:19.210] [info] Loading persistent workspaces from Hyprland workspace rules
+[2026-04-16 18:23:19.361] [info] Found device AT Translated Set 2 keyboard at '/dev/input/event4'
+[2026-04-16 18:23:19.640] [info] Bar configured (width: 1920, height: 34) for output: eDP-1
+[0.104] Ignoring unknown config key: enable_background_blur
+
+** (waybar:6659): CRITICAL **: 18:25:21.895: 
+unhandled exception (type Glib::Error) in signal handler:
+domain: gtk-css-provider-error-quark
+code  : 1
+what  : style.css:1:1Invalid name of pseudo-class
+
+[2026-04-16 18:25:48.313] [warning] Requested height: 34 is less than the minimum height: 35 required by the modules
+[2026-04-16 18:25:48.313] [info] Bar configured (width: 1920, height: 35) for output: eDP-1
+[2026-04-16 18:25:48.347] [warning] Requested height: 35 is less than the minimum height: 36 required by the modules
+[2026-04-16 18:25:48.348] [info] Bar configured (width: 1920, height: 36) for output: eDP-1
+[2026-04-16 18:25:48.410] [info] Bar configured (width: 1920, height: 35) for output: eDP-1
+[2026-04-16 18:25:48.445] [info] Bar configured (width: 1920, height: 34) for output: eDP-1
+
+** (waybar:6659): CRITICAL **: 18:29:38.698: 
+unhandled exception (type Glib::Error) in signal handler:
+domain: gtk-css-provider-error-quark
+code  : 1
+what  : style.css:1:1Invalid name of pseudo-class
+
+
+** (waybar:6659): CRITICAL **: 18:29:45.734: 
+unhandled exception (type Glib::Error) in signal handler:
+domain: gtk-css-provider-error-quark
+code  : 1
+what  : style.css:1:1Invalid name of pseudo-class
+
+
+** (waybar:6659): CRITICAL **: 18:29:52.657: 
+unhandled exception (type Glib::Error) in signal handler:
+domain: gtk-css-provider-error-quark
+code  : 1
+what  : style.css:1:1Invalid name of pseudo-class
+
+[2026-04-16 18:30:09.320] [info] Using configuration file /home/gustavo/.config/waybar/config.jsonc
+[2026-04-16 18:30:09.321] [info] Including resource file: ~/.config/waybar/modules/paddings.jsonc
+[2026-04-16 18:30:09.321] [info] Including resource file: ~/.config/waybar/modules/workspaces.jsonc
+[2026-04-16 18:30:09.321] [info] Including resource file: ~/.config/waybar/modules/control-panel.jsonc
+[2026-04-16 18:30:09.322] [info] Including resource file: ~/.config/waybar/modules/datetime.jsonc
+[2026-04-16 18:30:09.322] [info] Including resource file: ~/.config/waybar/modules/layout.jsonc
+[2026-04-16 18:30:09.322] [info] Including resource file: ~/.config/waybar/modules/stats.jsonc
+[2026-04-16 18:30:09.322] [info] Including resource file: ~/.config/waybar/modules/system-levels.jsonc
+[2026-04-16 18:30:09.322] [info] Including resource file: ~/.config/waybar/modules/taskbar.jsonc
+[2026-04-16 18:30:09.326] [info] Discovered appearance 'dark'
+[2026-04-16 18:30:09.383] [info] Using CSS file /home/gustavo/.config/waybar/style.css
+[2026-04-16 18:30:09.384] [error] style.css:1:1Invalid name of pseudo-class
+[2026-04-16 18:31:04.399] [info] Using configuration file /home/gustavo/.config/waybar/config.jsonc
+[2026-04-16 18:31:04.400] [info] Including resource file: ~/.config/waybar/modules/paddings.jsonc
+[2026-04-16 18:31:04.400] [info] Including resource file: ~/.config/waybar/modules/workspaces.jsonc
+[2026-04-16 18:31:04.400] [info] Including resource file: ~/.config/waybar/modules/control-panel.jsonc
+[2026-04-16 18:31:04.400] [info] Including resource file: ~/.config/waybar/modules/datetime.jsonc
+[2026-04-16 18:31:04.400] [info] Including resource file: ~/.config/waybar/modules/layout.jsonc
+[2026-04-16 18:31:04.401] [info] Including resource file: ~/.config/waybar/modules/stats.jsonc
+[2026-04-16 18:31:04.401] [info] Including resource file: ~/.config/waybar/modules/system-levels.jsonc
+[2026-04-16 18:31:04.401] [info] Including resource file: ~/.config/waybar/modules/taskbar.jsonc
+[2026-04-16 18:31:04.406] [info] Discovered appearance 'dark'
+[2026-04-16 18:31:04.457] [info] Using CSS file /home/gustavo/.config/waybar/style.css
+[2026-04-16 18:31:04.467] [info] Hyprland IPC starting
+[2026-04-16 18:31:04.467] [info] Loading persistent workspaces from Waybar config
+[2026-04-16 18:31:04.468] [info] Loading persistent workspaces from Hyprland workspace rules
+[2026-04-16 18:31:04.621] [info] Found device AT Translated Set 2 keyboard at '/dev/input/event4'
+[2026-04-16 18:31:04.915] [info] Bar configured (width: 1920, height: 34) for output: eDP-1
+
+** (waybar:19148): CRITICAL **: 18:32:07.114: 
+unhandled exception (type Glib::Error) in signal handler:
+domain: gtk-css-provider-error-quark
+code  : 1
+what  : style.css:2:4Expected semicolon
+
+
+** (waybar:19148): CRITICAL **: 18:32:19.188: 
+unhandled exception (type Glib::Error) in signal handler:
+domain: gtk-css-provider-error-quark
+code  : 1
+what  : style.css:2:4Expected semicolon
+
+[2026-04-16 18:33:00.661] [info] Using configuration file /home/gustavo/.config/waybar/config.jsonc
+[2026-04-16 18:33:00.662] [info] Including resource file: ~/.config/waybar/modules/paddings.jsonc
+[2026-04-16 18:33:00.662] [info] Including resource file: ~/.config/waybar/modules/workspaces.jsonc
+[2026-04-16 18:33:00.662] [info] Including resource file: ~/.config/waybar/modules/control-panel.jsonc
+[2026-04-16 18:33:00.662] [info] Including resource file: ~/.config/waybar/modules/datetime.jsonc
+[2026-04-16 18:33:00.662] [info] Including resource file: ~/.config/waybar/modules/layout.jsonc
+[2026-04-16 18:33:00.662] [info] Including resource file: ~/.config/waybar/modules/stats.jsonc
+[2026-04-16 18:33:00.663] [info] Including resource file: ~/.config/waybar/modules/system-levels.jsonc
+[2026-04-16 18:33:00.663] [info] Including resource file: ~/.config/waybar/modules/taskbar.jsonc
+[2026-04-16 18:33:00.666] [info] Discovered appearance 'dark'
+[2026-04-16 18:33:00.716] [info] Using CSS file /home/gustavo/.config/waybar/style.css
+[2026-04-16 18:33:00.726] [info] Hyprland IPC starting
+[2026-04-16 18:33:00.727] [info] Loading persistent workspaces from Waybar config
+[2026-04-16 18:33:00.727] [info] Loading persistent workspaces from Hyprland workspace rules
+[2026-04-16 18:33:00.862] [info] Found device AT Translated Set 2 keyboard at '/dev/input/event4'
+[2026-04-16 18:33:01.144] [info] Bar configured (width: 1920, height: 34) for output: eDP-1
+[2026-04-16 18:40:43.463] [info] Using configuration file /home/gustavo/.config/waybar/config.jsonc
+[2026-04-16 18:40:43.463] [info] Including resource file: ~/.config/waybar/modules/paddings.jsonc
+[2026-04-16 18:40:43.464] [info] Including resource file: ~/.config/waybar/modules/workspaces.jsonc
+[2026-04-16 18:40:43.464] [info] Including resource file: ~/.config/waybar/modules/control-panel.jsonc
+[2026-04-16 18:40:43.464] [info] Including resource file: ~/.config/waybar/modules/datetime.jsonc
+[2026-04-16 18:40:43.464] [info] Including resource file: ~/.config/waybar/modules/layout.jsonc
+[2026-04-16 18:40:43.464] [info] Including resource file: ~/.config/waybar/modules/stats.jsonc
+[2026-04-16 18:40:43.465] [info] Including resource file: ~/.config/waybar/modules/system-levels.jsonc
+[2026-04-16 18:40:43.465] [info] Including resource file: ~/.config/waybar/modules/taskbar.jsonc
+[2026-04-16 18:40:43.469] [info] Discovered appearance 'dark'
+[2026-04-16 18:40:43.528] [info] Using CSS file /home/gustavo/.config/waybar/style.css
+[2026-04-16 18:40:43.539] [info] Hyprland IPC starting
+[2026-04-16 18:40:43.540] [info] Loading persistent workspaces from Waybar config
+[2026-04-16 18:40:43.540] [info] Loading persistent workspaces from Hyprland workspace rules
+[2026-04-16 18:40:43.687] [info] Found device AT Translated Set 2 keyboard at '/dev/input/event4'
+Discharging
+[2026-04-16 18:40:43.982] [info] Bar configured (width: 1920, height: 34) for output: eDP-1
+[2026-04-16 18:41:44.005] [info] Using configuration file /home/gustavo/.config/waybar/config.jsonc
+[2026-04-16 18:41:44.005] [info] Including resource file: ~/.config/waybar/modules/paddings.jsonc
+[2026-04-16 18:41:44.005] [info] Including resource file: ~/.config/waybar/modules/workspaces.jsonc
+[2026-04-16 18:41:44.006] [info] Including resource file: ~/.config/waybar/modules/control-panel.jsonc
+[2026-04-16 18:41:44.006] [info] Including resource file: ~/.config/waybar/modules/datetime.jsonc
+[2026-04-16 18:41:44.006] [info] Including resource file: ~/.config/waybar/modules/layout.jsonc
+[2026-04-16 18:41:44.006] [info] Including resource file: ~/.config/waybar/modules/stats.jsonc
+[2026-04-16 18:41:44.006] [info] Including resource file: ~/.config/waybar/modules/system-levels.jsonc
+[2026-04-16 18:41:44.007] [info] Including resource file: ~/.config/waybar/modules/taskbar.jsonc
+[2026-04-16 18:41:44.011] [info] Discovered appearance 'dark'
+[2026-04-16 18:41:44.064] [info] Using CSS file /home/gustavo/.config/waybar/style.css
+[2026-04-16 18:41:44.074] [info] Hyprland IPC starting
+[2026-04-16 18:41:44.075] [info] Loading persistent workspaces from Waybar config
+[2026-04-16 18:41:44.075] [info] Loading persistent workspaces from Hyprland workspace rules
+[2026-04-16 18:41:44.245] [info] Found device AT Translated Set 2 keyboard at '/dev/input/event4'
+Discharging
+[2026-04-16 18:41:44.534] [info] Bar configured (width: 1920, height: 34) for output: eDP-1
+[2026-04-16 18:42:56.039] [info] Using configuration file /home/gustavo/.config/waybar/config.jsonc
+[2026-04-16 18:42:56.040] [info] Including resource file: ~/.config/waybar/modules/paddings.jsonc
+[2026-04-16 18:42:56.040] [info] Including resource file: ~/.config/waybar/modules/workspaces.jsonc
+[2026-04-16 18:42:56.040] [info] Including resource file: ~/.config/waybar/modules/control-panel.jsonc
+[2026-04-16 18:42:56.040] [info] Including resource file: ~/.config/waybar/modules/datetime.jsonc
+[2026-04-16 18:42:56.041] [info] Including resource file: ~/.config/waybar/modules/layout.jsonc
+[2026-04-16 18:42:56.041] [info] Including resource file: ~/.config/waybar/modules/stats.jsonc
+[2026-04-16 18:42:56.041] [info] Including resource file: ~/.config/waybar/modules/system-levels.jsonc
+[2026-04-16 18:42:56.041] [info] Including resource file: ~/.config/waybar/modules/taskbar.jsonc
+[2026-04-16 18:42:56.045] [info] Discovered appearance 'dark'
+[2026-04-16 18:42:56.108] [info] Using CSS file /home/gustavo/.config/waybar/style.css
+[2026-04-16 18:42:56.119] [info] Hyprland IPC starting
+[2026-04-16 18:42:56.120] [info] Loading persistent workspaces from Waybar config
+[2026-04-16 18:42:56.120] [info] Loading persistent workspaces from Hyprland workspace rules
+[2026-04-16 18:42:56.270] [info] Found device AT Translated Set 2 keyboard at '/dev/input/event4'
+Discharging
+[2026-04-16 18:42:56.564] [info] Bar configured (width: 1920, height: 34) for output: eDP-1
+[2026-04-16 18:43:15.680] [info] Using configuration file /home/gustavo/.config/waybar/config.jsonc
+[2026-04-16 18:43:15.681] [info] Including resource file: ~/.config/waybar/modules/paddings.jsonc
+[2026-04-16 18:43:15.681] [info] Including resource file: ~/.config/waybar/modules/workspaces.jsonc
+[2026-04-16 18:43:15.681] [info] Including resource file: ~/.config/waybar/modules/control-panel.jsonc
+[2026-04-16 18:43:15.681] [info] Including resource file: ~/.config/waybar/modules/datetime.jsonc
+[2026-04-16 18:43:15.681] [info] Including resource file: ~/.config/waybar/modules/layout.jsonc
+[2026-04-16 18:43:15.682] [info] Including resource file: ~/.config/waybar/modules/stats.jsonc
+[2026-04-16 18:43:15.682] [info] Including resource file: ~/.config/waybar/modules/system-levels.jsonc
+[2026-04-16 18:43:15.682] [info] Including resource file: ~/.config/waybar/modules/taskbar.jsonc
+[2026-04-16 18:43:15.687] [info] Discovered appearance 'dark'
+[2026-04-16 18:43:15.757] [info] Using CSS file /home/gustavo/.config/waybar/style.css
+[2026-04-16 18:43:15.770] [info] Hyprland IPC starting
+[2026-04-16 18:43:15.771] [info] Loading persistent workspaces from Waybar config
+[2026-04-16 18:43:15.772] [info] Loading persistent workspaces from Hyprland workspace rules
+[2026-04-16 18:43:15.914] [info] Found device AT Translated Set 2 keyboard at '/dev/input/event4'
+[2026-04-16 18:43:16.218] [info] Bar configured (width: 1920, height: 34) for output: eDP-1
+[2026-04-16 18:43:22.389] [info] Using configuration file /home/gustavo/.config/waybar/config.jsonc
+[2026-04-16 18:43:22.389] [info] Including resource file: ~/.config/waybar/modules/paddings.jsonc
+[2026-04-16 18:43:22.390] [info] Including resource file: ~/.config/waybar/modules/workspaces.jsonc
+[2026-04-16 18:43:22.390] [info] Including resource file: ~/.config/waybar/modules/control-panel.jsonc
+[2026-04-16 18:43:22.390] [info] Including resource file: ~/.config/waybar/modules/datetime.jsonc
+[2026-04-16 18:43:22.390] [info] Including resource file: ~/.config/waybar/modules/layout.jsonc
+[2026-04-16 18:43:22.390] [info] Including resource file: ~/.config/waybar/modules/stats.jsonc
+[2026-04-16 18:43:22.391] [info] Including resource file: ~/.config/waybar/modules/system-levels.jsonc
+[2026-04-16 18:43:22.391] [info] Including resource file: ~/.config/waybar/modules/taskbar.jsonc
+[2026-04-16 18:43:22.395] [info] Discovered appearance 'dark'
+[2026-04-16 18:43:22.461] [info] Using CSS file /home/gustavo/.config/waybar/style.css
+[2026-04-16 18:43:22.473] [info] Hyprland IPC starting
+[2026-04-16 18:43:22.474] [info] Loading persistent workspaces from Waybar config
+[2026-04-16 18:43:22.474] [info] Loading persistent workspaces from Hyprland workspace rules
+[2026-04-16 18:43:22.621] [info] Found device AT Translated Set 2 keyboard at '/dev/input/event4'
+Discharging
+[2026-04-16 18:43:22.923] [info] Bar configured (width: 1920, height: 34) for output: eDP-1
+Discharging
+[2026-04-16 18:44:03.800] [warning] Requested height: 34 is less than the minimum height: 36 required by the modules
+[2026-04-16 18:44:03.800] [info] Bar configured (width: 1920, height: 36) for output: eDP-1
+[2026-04-16 18:45:51.064] [info] Using configuration file /home/gustavo/.config/waybar/config.jsonc
+[2026-04-16 18:45:51.065] [info] Including resource file: ~/.config/waybar/modules/paddings.jsonc
+[2026-04-16 18:45:51.065] [info] Including resource file: ~/.config/waybar/modules/workspaces.jsonc
+[2026-04-16 18:45:51.065] [info] Including resource file: ~/.config/waybar/modules/control-panel.jsonc
+[2026-04-16 18:45:51.065] [info] Including resource file: ~/.config/waybar/modules/datetime.jsonc
+[2026-04-16 18:45:51.065] [info] Including resource file: ~/.config/waybar/modules/layout.jsonc
+[2026-04-16 18:45:51.066] [info] Including resource file: ~/.config/waybar/modules/stats.jsonc
+[2026-04-16 18:45:51.066] [info] Including resource file: ~/.config/waybar/modules/system-levels.jsonc
+[2026-04-16 18:45:51.066] [info] Including resource file: ~/.config/waybar/modules/taskbar.jsonc
+[2026-04-16 18:45:51.070] [info] Discovered appearance 'dark'
+[2026-04-16 18:45:51.126] [info] Using CSS file /home/gustavo/.config/waybar/style.css
+[2026-04-16 18:45:51.135] [info] Hyprland IPC starting
+[2026-04-16 18:45:51.136] [info] Loading persistent workspaces from Waybar config
+[2026-04-16 18:45:51.137] [info] Loading persistent workspaces from Hyprland workspace rules
+[2026-04-16 18:45:51.289] [info] Found device AT Translated Set 2 keyboard at '/dev/input/event4'
+Charging
+[2026-04-16 18:45:51.583] [warning] Requested height: 34 is less than the minimum height: 36 required by the modules
+[2026-04-16 18:45:51.583] [info] Bar configured (width: 1920, height: 36) for output: eDP-1
