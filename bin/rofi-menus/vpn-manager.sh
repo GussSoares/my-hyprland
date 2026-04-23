@@ -107,13 +107,14 @@ toggle_vpn() {
         rm -f "$PID_FILE"
         notify-send "OpenVPN" "Disconnected from $VPN"
     else
-        PASSWORD=$(wofi --normal-window --show dmenu -password -p "Enter the sudo password:")
+        # PASSWORD=$(wofi --normal-window --show dmenu -password -p "Enter the sudo password:")
+        PASSWORD=$(zenity --password)
 
         if [ $? -ne 0 ]; then
             notify-send "OpenVPN" "Connection canceled"
             return
         fi
-        
+
         disconnect_all_vpns # Отключаем все активные VPN перед подключением к новому
 
         echo $PASSWORD | sudo -S nohup openvpn --config "$VPN_DIR/$VPN" >/dev/null 2>&1 &
@@ -200,10 +201,10 @@ print_status() {
     done
 
     if $connected; then
-        local icon="󰯄 "
+        local icon="󰯄"
         local color=$ENABLED_COLOR
     else
-        local icon="󰯄 "
+        local icon="󰯄"
         local color=$DISABLED_COLOR
     fi
 

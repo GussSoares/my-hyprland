@@ -119,6 +119,7 @@ end
 ## Useful aliases
 
 # Replace ls with eza
+alias oldls 'ls'
 alias ls 'eza -al --color=always --group-directories-first --icons' # preferred listing
 alias lsz 'eza -al --color=always --total-size --group-directories-first --icons' # include file size
 alias la 'eza -a --color=always --group-directories-first --icons'  # all files and dirs
@@ -159,7 +160,7 @@ alias upd '/usr/bin/garuda-update'
 alias vdir 'vdir --color=auto'
 alias wget 'wget -c '
 alias cat 'bat --style header,snip,changes'
-
+alias vpn 'cd ~/vpn && sudo openvpn --config config.ovpn && cd -'
 
 # Get fastest mirrors
 alias mirror 'sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist'
@@ -204,8 +205,9 @@ alias rip 'expac --timefmt="%Y-%m-%d %T" "%l\t%n %v" | sort | tail -200 | nl'
 alias clean_system="sudo pacman -Rs (pacman -Qdtq); sudo paccache -rk1; sudo journalctl --vacuum-time=3d; yay -Sc"
 
 # code-insider
-alias code='code-insiders'
-
+if test -x /usr/bin/codium
+    alias code='codium'
+end
 
 # pyenv
 set -x PATH "~/.pyenv/bin" $PATH

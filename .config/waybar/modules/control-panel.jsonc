@@ -5,7 +5,7 @@
             "group/tray-drawer",
             "custom/updates",
             // "custom/do-not-disturb",
-            // "custom/vpn",
+            "custom/vpn",
             "custom/bluetooth",
             "group/network-drawer",
             "custom/notification",
@@ -116,7 +116,7 @@
         "exec": "sh ~/bin/rofi-menus/vpn-manager.sh --status --disabled-color \"#f38ba8\" --enabled-color \"#a6e3a1\" | cat",
         "return-type": "raw",
         "format": "{} ",
-        "interval": 3,
+        "interval": 10,
         "rotate": 0,
         "on-click": "sh ~/bin/rofi-menus/vpn-manager.sh",
         "tooltip": false

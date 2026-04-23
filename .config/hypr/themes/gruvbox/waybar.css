@@ -1,0 +1,17 @@
+/* ~/.config/hypr/themes/gruvbox/waybar.css */
+@define-color bar-bg rgba(40, 40, 40, 0);
+@define-color main-bg rgba(50, 48, 47, 0.9);
+@define-color main-fg rgba(216, 166, 87, 1);      /* Yellow/Gold */
+@define-color wb-act-bg rgba(216, 166, 87, 0.9);
+@define-color wb-act-fg rgba(40, 40, 40, 0.8);
+@define-color wb-hvr-bg rgba(102, 92, 84, 0.4);
+@define-color wb-hvr-fg rgba(169, 182, 101, 0.8); /* Green */
+@define-color danger #ea6962;
+@define-color red #ea6962;
+@define-color green #a9b665;
+@define-color yellow #d8a657;
+@define-color mauve #d3869b;
+@define-color blue #7daea3;
+@define-color orange #e78a4e;
+@define-color semi-orange #d8a657;
+@define-color oil #282828;

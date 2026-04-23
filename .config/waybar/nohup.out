@@ -229,3 +229,25 @@ Discharging
 Charging
 [2026-04-16 18:45:51.583] [warning] Requested height: 34 is less than the minimum height: 36 required by the modules
 [2026-04-16 18:45:51.583] [info] Bar configured (width: 1920, height: 36) for output: eDP-1
+[2026-04-23 11:32:13.047] [info] Using configuration file /home/gustavo/.config/waybar/config.jsonc
+[2026-04-23 11:32:13.048] [info] Including resource file: ~/.config/waybar/modules/paddings.jsonc
+[2026-04-23 11:32:13.048] [info] Including resource file: ~/.config/waybar/modules/workspaces.jsonc
+[2026-04-23 11:32:13.048] [info] Including resource file: ~/.config/waybar/modules/control-panel.jsonc
+[2026-04-23 11:32:13.048] [info] Including resource file: ~/.config/waybar/modules/datetime.jsonc
+[2026-04-23 11:32:13.048] [info] Including resource file: ~/.config/waybar/modules/layout.jsonc
+[2026-04-23 11:32:13.048] [info] Including resource file: ~/.config/waybar/modules/stats.jsonc
+[2026-04-23 11:32:13.049] [info] Including resource file: ~/.config/waybar/modules/system-levels.jsonc
+[2026-04-23 11:32:13.049] [info] Including resource file: ~/.config/waybar/modules/taskbar.jsonc
+[2026-04-23 11:32:13.053] [info] Discovered appearance 'dark'
+[2026-04-23 11:32:13.102] [info] Using CSS file /home/gustavo/.config/waybar/style.css
+[2026-04-23 11:32:13.110] [info] Hyprland IPC starting
+[2026-04-23 11:32:13.111] [info] Loading persistent workspaces from Waybar config
+[2026-04-23 11:32:13.111] [info] Loading persistent workspaces from Hyprland workspace rules
+[2026-04-23 11:32:13.273] [info] Found device AT Translated Set 2 keyboard at '/dev/input/event4'
+Discharging
+[2026-04-23 11:32:13.509] [warning] Requested height: 34 is less than the minimum height: 36 required by the modules
+[2026-04-23 11:32:13.509] [info] Bar configured (width: 1920, height: 36) for output: eDP-1
+
+(wofi:78566): Gtk-CRITICAL **: 11:32:26.165: gtk_widget_get_visible: assertion 'GTK_IS_WIDGET (widget)' failed
+
+(wofi:88996): Gtk-CRITICAL **: 11:37:53.136: gtk_widget_get_visible: assertion 'GTK_IS_WIDGET (widget)' failed

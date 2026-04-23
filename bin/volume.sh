@@ -71,7 +71,7 @@ print_status() {
 action_volume() {
     case "${action}" in
         increase) 
-            pamixer "${srce}" -i 2 
+            pamixer "${srce}" -i 2 --allow-boost
             ;;
         decrease) 
             pamixer "${srce}" -d 2 

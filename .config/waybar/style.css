@@ -5,6 +5,15 @@
 @define-color wb-act-fg rgba(0,0,0,0.7);
 @define-color wb-hvr-bg rgba(75,75,125,0.4);
 @define-color wb-hvr-fg rgba(174,170,240,0.8);
+@define-color danger #D35F5D;
+@define-color red #f38ba8;
+@define-color green #a6e3a1;
+@define-color yellow #f9e2af;
+@define-color mauve #cba6f7;
+@define-color blue #89b4fa;
+@define-color orange #fab387;
+@define-color semi-orange #e6b450;
+@define-color oil #1e1e2e;
 
 * {
     border: none;
@@ -171,91 +180,91 @@ tooltip {
 }
 
 #network {
-    color: #a6e3a1; /* Verde (Catppuccin Green) */
+    color: @green; /* Verde (Catppuccin Green) */
 }
 
 /* Sinal Médio (abaixo de 60%) */
 #network.linked, #network.wifi.low {
-    color: #f9e2af; /* Amarelo (Catppuccin Yellow) */
+    color: @yellow; /* Amarelo (Catppuccin Yellow) */
 }
 
 /* Sinal Ruim ou Desconectado */
 #network.disconnected {
-    color: #f38ba8; /* Vermelho (Catppuccin Red) */
+    color: @red; /* Vermelho (Catppuccin Red) */
 }
 
 /* Opcional: Efeito quando está buscando rede */
 #network.scanning {
-    color: #cba6f7; /* Mauve */
+    color: @mauve; /* Mauve */
 }
 
 /* Cor padrão (abaixo de 70%) */
 #cpu, #memory {
-    color: #a6e3a1; /* Verde (ex: Catppuccin Green) */
+    color: @green; /* Verde (ex: Catppuccin Green) */
     background: transparent;
 }
 
 /* Estado de alerta (70% - 89%) */
 #cpu.warning, #memory.warning {
-    color: #f9e2af; /* Amarelo */
+    color: @yellow; /* Amarelo */
 }
 
 /* Estado crítico (90%+) */
 #cpu.critical, #memory.critical {
-    color: #f38ba8; /* Vermelho */
+    color: @red; /* Vermelho */
     font-weight: bold;
 }
 
 /* Temperatura Normal (Abaixo de 65°C) */
 #temperature {
-    color: #89b4fa; /* Azul (Frio/Normal) */
+    color: @blue; /* Azul (Frio/Normal) */
 }
 
 /* Temperatura em Alerta (65°C - 79°C) */
 #temperature.warning {
-    color: #fab387; /* Laranja (Aquecendo) */
+    color: @orange; /* Laranja (Aquecendo) */
 }
 
 /* Temperatura Crítica (80°C+) */
 #temperature.critical {
-    color: #f38ba8; /* Vermelho (Perigo) */
+    color: @red; /* Vermelho (Perigo) */
     font-weight: bold;
 }
 
 #memory {
-    color: #a6e3a1; /* Verde para < 40% */
+    color: @green; /* Verde para < 40% */
 }
 
 #memory.medium {
-    color: #89b4fa; /* Azul/Ciano para 40%-69% */
+    color: @blue; /* Azul/Ciano para 40%-69% */
 }
 
 #memory.high {
-    color: #fab387; /* Laranja para 70%-89% */
+    color: @orange; /* Laranja para 70%-89% */
 }
 
 #memory.critical {
-    color: #f38ba8; /* Vermelho para 90%+ */
+    color: @red; /* Vermelho para 90%+ */
     font-weight: bold;
 }
 
 #battery {
-    color: #A0E8A2; /* Seu CHARGED_COLOR */
+    color: @green; /* Seu CHARGED_COLOR */
 }
 
 /* Quando estiver carregando */
 #battery.charging, #battery.plugged {
-    color: #A0E8A2;
+    color: @green;
 }
 
 /* Quando atingir 30% (Warning) */
 #battery.warning:not(.charging) {
-    color: #e6b450; /* Um laranja intermediário */
+    color: @semi-orange; /* Um laranja intermediário */
 }
 
 /* Quando atingir 15% (Critical - Seu DISCHARGED_COLOR) */
 #battery.critical:not(.charging) {
-    color: #D35F5D;
+    color: @danger;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
@@ -265,7 +274,7 @@ tooltip {
 
 @keyframes blink {
     to {
-        background-color: #D35F5D;
-        color: #1e1e2e;
+        background-color: @danger;
+        color: @oil;
     }
 }
