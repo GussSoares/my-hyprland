@@ -34,7 +34,7 @@ upload_config() {
         for i in "${ADDR[@]}"; do
             if [[ $i == *.ovpn ]]; then
                 cp "$i" "$VPN_DIR"
-                notify-send "OpenVPN" "Configuration files have been successfully added!"
+                notify-send "OpenVPN" "Configuration files have been successfully added!" --icon=openvpn --app-name="openvpn" --urgency=normal
             else
                 zenity --error --text="Only files with the extension .ovpns are allowed to download."
             fi
@@ -65,7 +65,7 @@ delete_vpn_config() {
     if [ -f "$VPN_CONFIG_FILE" ]; then
         rm -f "$VPN_CONFIG_FILE"
     fi
-    notify-send "OpenVPN" "The $SELECTED_VPN configuration has been successfully deleted!"
+    notify-send "OpenVPN" "The $SELECTED_VPN configuration has been successfully deleted!" --icon=openvpn --app-name="openvpn" --urgency=normal
 }
 
 # Функция для отключения всех активных VPN подключений
@@ -83,7 +83,7 @@ disconnect_all_vpns() {
             if kill -0 "$PID" 2>/dev/null; then
                 kill -9 "$PID"
             fi
-            notify-send "OpenVPN" "Disconnected from $VPN_PID"
+            notify-send "OpenVPN" "Disconnected from $VPN_PID" --icon=openvpn --app-name="openvpn" --urgency=normal
         fi
         rm -f "$PID_PATH"
     done
@@ -105,13 +105,13 @@ toggle_vpn() {
             fi
         fi
         rm -f "$PID_FILE"
-        notify-send "OpenVPN" "Disconnected from $VPN"
+        notify-send "OpenVPN" "Disconnected from $VPN" --icon=openvpn --app-name="openvpn" --urgency=normal
     else
         # PASSWORD=$(wofi --normal-window --show dmenu -password -p "Enter the sudo password:")
         PASSWORD=$(zenity --password)
 
         if [ $? -ne 0 ]; then
-            notify-send "OpenVPN" "Connection canceled"
+            notify-send "OpenVPN" "Connection canceled" --icon=openvpn --app-name="openvpn" --urgency=normal
             return
         fi
 
@@ -120,7 +120,7 @@ toggle_vpn() {
         echo $PASSWORD | sudo -S nohup openvpn --config "$VPN_DIR/$VPN" >/dev/null 2>&1 &
         PID=$!
         echo $PID > "$PID_FILE"
-        notify-send "OpenVPN" "Connecting to $VPN initiated"
+        notify-send "OpenVPN" "Connecting to $VPN initiated" --icon=openvpn --app-name="openvpn" --urgency=normal
     fi
 }
 

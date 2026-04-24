@@ -21,7 +21,13 @@ This setup is designed for Arch Linux (or Arch-based distributions) with Hyprlan
 Install the required packages using pacman:
 
 ```bash
-sudo pacman -S hyprland waybar rofi alacritty foot kitty swaync cava btop fastfetch fish starship nwg-dock-hyprland imagemagick superfile wireplumber bluetui lazydocker upower bluez-utils brightnessctl grim slurp wl-clipboard networkmanager polkit-kde-agent xdg-desktop-portal-hyprland swaylock pamixer tar unzip rofimoji hyprpicker xcolor dunst python-psutil python-gputil pyamdgpuinfo lolcat power-profiles-daemon gazelle awww
+sudo pacman -S hyprland waybar rofi alacritty foot kitty swaync cava btop fastfetch fish starship nwg-dock-hyprland imagemagick superfile wireplumber bluetui lazydocker upower bluez-utils brightnessctl grim slurp wl-clipboard networkmanager polkit-kde-agent xdg-desktop-portal-hyprland swaylock pamixer tar unzip rofimoji hyprpicker xcolor dunst python-psutil python-gputil pyamdgpuinfo lolcat power-profiles-daemon gazelle awww zenity tlp
+```
+
+> Important for notebook battery
+
+```bash
+sudo systemctl enable --now tlp
 ```
 
 For Python dependencies (for system-info.py):
@@ -127,6 +133,12 @@ Common keybindings (check `~/.config/hypr/hyprland.conf` for full list):
 - Wallpapers: Use `swww` for dynamic wallpapers (script in `~/.config/hypr/scripts/`).
 - Fonts: Nerd Fonts recommended for icons.
 - To change themes, modify the color schemes in Waybar, Hyprland, etc.
+
+#### Wallpapers
+
+- [Catppuccin Mocha](https://github.com/orangci/walls-catppuccin-mocha)
+- [TokyoNIght](https://github.com/atraxsrc/tokyonight-wallpapers)
+
 
 ### 🐛 Troubleshooting
 
