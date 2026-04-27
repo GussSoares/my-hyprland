@@ -76,18 +76,20 @@ if [ -f "$THEME_PATH/kitty.conf" ]; then
 fi
 
 # GTK Settings (Lendo do seu settings.ini)
-# if [ -f "$THEME_PATH/settings.ini" ]; then
-#     GTK_THEME=$(grep "gtk_theme" "$THEME_PATH/settings.ini" | cut -d'=' -f2)
+if [ -f "$THEME_PATH/settings.ini" ]; then
+    GTK_THEME=$(grep "gtk_theme" "$THEME_PATH/settings.ini" | cut -d'=' -f2)
+    COLOR_SCHEME=$(grep "color_scheme" "$THEME_PATH/settings.ini" | cut -d'=' -f2)
 #     ICON_THEME=$(grep "icon_theme" "$THEME_PATH/settings.ini" | cut -d'=' -f2)
-    
-#     gsettings set org.gnome.desktop.interface gtk-theme "$GTK_THEME"
+    echo $COLOR_SCHEME
+    gsettings set org.gnome.desktop.interface gtk-theme "$GTK_THEME"
+    gsettings set org.gnome.desktop.interface color-scheme "$COLOR_SCHEME"
 #     gsettings set org.gnome.desktop.interface icon-theme "$ICON_THEME"
     
 #     # GTK4 Link (Opcional, mas recomendado para o System Monitor)
 #     mkdir -p ~/.config/gtk-4.0
 #     ln -sf "/usr/share/themes/$GTK_THEME/gtk-4.0/gtk.css" "$HOME/.config/gtk-4.0/gtk.css"
 #     ln -sf "/usr/share/themes/$GTK_THEME/gtk-4.0/gtk-dark.css" "$HOME/.config/gtk-4.0/gtk-dark.css"
-# fi
+fi
 
 # Reload Apps
 killall -SIGUSR2 waybar
