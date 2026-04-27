@@ -263,3 +263,7 @@ tooltip {
         color: @oil;
     }
 }
+
+#custom-notification > span {
+    color: @red;
+}

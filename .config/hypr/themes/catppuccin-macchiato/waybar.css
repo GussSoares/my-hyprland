@@ -1,0 +1,19 @@
+/*
+** Catppuccin Macchiato
+*/
+@define-color bar-bg rgba(36, 39, 58, 0);
+@define-color main-bg rgba(36, 39, 58, 0.9);
+@define-color main-fg rgba(183, 189, 248, 1);
+@define-color wb-act-bg rgba(183, 189, 248, 0.9);
+@define-color wb-act-fg rgba(24, 25, 38, 0.7);
+@define-color wb-hvr-bg rgba(84, 92, 126, 0.4);
+@define-color wb-hvr-fg rgba(202, 211, 245, 0.8);
+@define-color danger #ed8796;
+@define-color red #ed8796;
+@define-color green #a6da95;
+@define-color yellow #eed49f;
+@define-color mauve #c6a0f6;
+@define-color blue #8aadf4;
+@define-color orange #f5a97f;
+@define-color semi-orange #eed49f;
+@define-color oil #24273a;

@@ -1,0 +1,25 @@
+@define-color base #282828;
+@define-color mantle #1d2021;
+@define-color crust #1b1b1b;
+@define-color text #d4be98;
+@define-color subtext0 #a89984;
+@define-color blue #7daea3;
+@define-color lavender #a9b665;
+@define-color red #ea6962;
+@define-color surface0 #3c3836;
+@define-color surface1 #504945;
+
+/* ... Ajuste de botões para Gruvbox ... */
+.control-center .widget-title button {
+    color: @text;
+    background-color: @surface0;
+}
+
+.control-center .widget-title button:hover {
+    background-color: @surface1;
+}
+
+.control-center .widget-title button:active {
+    background-color: @blue;
+    color: @base;
+}

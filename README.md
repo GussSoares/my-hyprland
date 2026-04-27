@@ -138,6 +138,7 @@ Common keybindings (check `~/.config/hypr/hyprland.conf` for full list):
 
 - [Catppuccin Mocha](https://github.com/orangci/walls-catppuccin-mocha)
 - [TokyoNIght](https://github.com/atraxsrc/tokyonight-wallpapers)
+- [Others](https://github.com/teowelton/Wallpapers#cloudy-quasar-1---catppuccin-macchiato)
 
 
 ### 🐛 Troubleshooting

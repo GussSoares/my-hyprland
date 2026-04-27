@@ -1,0 +1,19 @@
+/*
+** Catppuccin Latte
+*/
+@define-color bar-bg rgba(239, 241, 245, 0);
+@define-color main-bg rgba(239, 241, 245, 0.9);
+@define-color main-fg rgba(114, 135, 253, 1);
+@define-color wb-act-bg rgba(114, 135, 253, 0.9);
+@define-color wb-act-fg rgba(239, 241, 245, 0.9);
+@define-color wb-hvr-bg rgba(204, 208, 218, 0.4);
+@define-color wb-hvr-fg rgba(30, 31, 38, 0.8);
+@define-color danger #d20f39;
+@define-color red #d20f39;
+@define-color green #40a02b;
+@define-color yellow #df8e1d;
+@define-color mauve #8839ef;
+@define-color blue #1e66f5;
+@define-color orange #fe640b;
+@define-color semi-orange #df8e1d;
+@define-color oil #eff1f5;

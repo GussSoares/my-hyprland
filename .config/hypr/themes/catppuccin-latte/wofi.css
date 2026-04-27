@@ -1,0 +1,53 @@
+@define-color base #eff1f5;
+@define-color surface0 #ccd0da;
+@define-color text #4c4f69;
+@define-color mauve #8839ef;
+
+window {
+    background-color: transparent;
+    font-family: "FiraCode Nerd Font";
+    font-size: 14px;
+}
+
+#outer-box {
+    background-color: rgba(239, 241, 245, 0.9);
+    border-radius: 10px;
+    padding: 15px;
+}
+
+#input {
+    background-color: @surface0;
+    color: @text;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+#entry {
+    padding: 10px;
+    border-radius: 12px;
+}
+
+#entry:selected {
+    background-color: rgba(136, 57, 239, 0.15);
+    border: 1px solid @mauve;
+}
+
+#text {
+    color: @text;
+    margin-left: 10px;
+}
+
+#text:selected {
+    color: @mauve;
+    background-color: transparent;
+    font-weight: bold;
+}
+
+#img {
+    margin-right: 15px;
+    border-radius: 10px;
+    clip-path: inset(0% round 10px);
+    background-color: transparent;
+}

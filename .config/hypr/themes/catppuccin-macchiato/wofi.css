@@ -1,0 +1,58 @@
+@define-color base #24273a;
+@define-color mantle #1e2030;
+@define-color surface0 #36394f;
+@define-color surface1 #494d64;
+@define-color text #cad3f5;
+@define-color mauve #c6a0f6;
+@define-color blue #8aadf4;
+@define-color lavender #b7bdf8;
+
+window {
+    background-color: transparent;
+    font-family: "FiraCode Nerd Font";
+    font-size: 14px;
+}
+
+#outer-box {
+    background-color: rgba(36, 39, 58, 0.9);
+    border-radius: 10px;
+    padding: 15px;
+}
+
+#input {
+    background-color: @surface0;
+    color: @text;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+#entry {
+    padding: 10px;
+    border-radius: 12px;
+    transition: all 0.2s ease-in-out;
+}
+
+#entry:selected {
+    background-color: rgba(198, 160, 246, 0.15);
+    border: 1px solid @mauve;
+}
+
+#text {
+    color: @text;
+    margin-left: 10px;
+}
+
+#text:selected {
+    color: @mauve;
+    background-color: transparent;
+    font-weight: bold;
+}
+
+#img {
+    margin-right: 15px;
+    border-radius: 10px;
+    clip-path: inset(0% round 10px);
+    background-color: transparent;
+}

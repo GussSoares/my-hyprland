@@ -1,0 +1,80 @@
+/* Catppuccin Latte - High Contrast Fix */
+@define-color base      #eff1f5;
+@define-color text      #4c4f69;
+@define-color subtext0  #6c6f85;
+@define-color blue      #1e66f5;
+@define-color surface0  #ccd0da;
+@define-color surface1  #bcc0cc;
+
+* {
+    font-family: "FiraCode Nerd Font";
+    /* Removendo qualquer sombra de texto que possa causar desfoque */
+    text-shadow: none;
+    box-shadow: none;
+}
+
+.control-center {
+    background: alpha(@base, 0.95);
+    border: 2px solid @blue;
+    border-radius: 12px;
+}
+
+/* --- TÍTULOS E LABELS PRINCIPAIS --- */
+.widget-title > label, 
+.widget-dnd > label,
+.control-center .widget-title > label {
+    color: @text !important;
+}
+
+/* --- NOTIFICAÇÕES (Onde está o problema da imagem) --- */
+.notification {
+    background: @base;
+    border: 2px solid @blue;
+    border-radius: 12px;
+}
+
+/* Forçando a cor de TODOS os textos dentro da notificação */
+.notification label,
+.notification .notification-content .summary,
+.notification .notification-content .body,
+.notification .notification-default-action .summary,
+.notification .notification-default-action .body {
+    color: @text !important;
+    opacity: 1 !important;
+}
+
+/* Título da Notificação (Ex: Rice Switcher) */
+.notification-title,
+.summary {
+    color: @blue !important;
+    font-weight: bold !important;
+}
+
+/* Corpo da Notificação (Ex: Ambiente aplicado...) */
+.notification-body,
+.body {
+    color: @text !important;
+}
+
+/* Tempo (Ex: Now, 2 mins ago) */
+.time {
+    color: @subtext0 !important;
+    text-shadow: none !important;
+}
+
+/* Botões (Clear All) */
+.control-center .widget-title button {
+    color: @base; /* Texto claro */
+    background: @blue; /* Fundo azul escuro para dar contraste */
+    border-radius: 8px;
+    padding: 4px 12px;
+}
+
+.control-center .widget-title button:hover {
+    background: @text;
+    color: @base;
+}
+
+/* Widget de Mídia */
+.widget-mpris-title { color: @blue !important; }
+.widget-mpris-subtitle { color: @text !important; }
