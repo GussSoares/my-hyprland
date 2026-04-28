@@ -6,8 +6,8 @@
             // "power-profiles-daemon",
             // "custom/battery",
             "battery",
-            "custom/volume",
-            "custom/microphone"
+            "pulseaudio",
+            "pulseaudio#microphone"
         ]
     },
     "custom/brightness": {
@@ -66,6 +66,27 @@
         "interval": 10,
         "rotate": 0,
         "on-click": "sh ~/bin/battery.sh --notify"
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰝟 Muted",
+        "format-icons": {
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "on-click": "kitty --class volume-floating -e wiremix --tab output",
+        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
+        "scroll-step": 5
+    },
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": " Muted",
+        "on-click": "kitty --class volume-floating -e wiremix --tab input",
+        "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle", // Atalho para mutar
+        "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +5%",
+        "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -5%",
+        "scroll-step": 5
     },
     "custom/volume": {
         "exec": "sh ~/bin/volume.sh --device output --status --disabled-color \"#f38ba8\" --enabled-color \"#a6e3a1\" | cat",

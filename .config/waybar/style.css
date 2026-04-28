@@ -107,7 +107,7 @@ tooltip {
 
 /* #tray, */
 #workspaces,
-#battery,
+/* #battery, */
 #taskbar,
 #clock,
 #idle_inhibitor,
@@ -266,4 +266,23 @@ tooltip {
 
 #custom-notification > span {
     color: @red;
+}
+
+#pulseaudio {
+    color: @green;
+    background: @surface0;
+    border-radius: 8px;
+    padding: 0 5px;
+    /* margin: 4px; */
+}
+#pulseaudio.microphone {
+    color: @green;
+    background: @surface0;
+    border-radius: 8px;
+    padding: 0 5;
+}
+
+#pulseaudio.muted, 
+#pulseaudio.microphone.muted {
+    color: @red; /* Fica vermelho quando mutado */
 }

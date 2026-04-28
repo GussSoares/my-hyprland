@@ -1,7 +1,6 @@
 /*
 ** Catppuccin Mocha
 */
-
 @define-color bar-bg rgba(30, 30, 46, 0);
 @define-color main-bg rgba(30, 30, 46, 0.9);
 @define-color main-fg rgba(180,190,254,1);
