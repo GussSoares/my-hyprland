@@ -4,6 +4,7 @@
 THEME_DIR="$HOME/.config/hypr/themes"
 CACHE_DIR="$HOME/.cache/hypr_theme"
 THUMB_DIR="$CACHE_DIR/thumbs"
+SUPERFILE_CONFIG="$HOME/.config/superfile/config.toml"
 VSCODIUM_SETTINGS_JSON="$HOME/.config/VSCodium/User/settings.json"
 THUMB_SIZE="220x120"
 mkdir -p "$THUMB_DIR"
@@ -47,11 +48,12 @@ THEME_PATH="$THEME_DIR/$CHOICE"
 # ln -sf "$THEME_PATH/variables.conf" "$HOME/.config/hypr/theme.conf"
 ln -sf "$THEME_PATH/waybar.css" "$HOME/.config/waybar/theme.css"
 ln -sf "$THEME_PATH/wofi.css" "$HOME/.config/wofi/style.css"
-ln -sf "$THEME_PATH/hyprland.conf" "$HOME/.config/hypr/theme.conf"
+ln -sf "$THEME_PATH/hyprland.lua" "$HOME/.config/hypr/theme.lua"
 ln -sf "$THEME_PATH/swaync.css" "$HOME/.config/swaync/theme.css"
 
-
+#
 # vscodium
+#
 case $CHOICE in
     "catppuccin-macchiato")     THEME="Catppuccin Macchiato" ;;
     "catppuccin-mocha")         THEME="Catppuccin Mocha" ;;
@@ -63,33 +65,51 @@ case $CHOICE in
 esac
 sed -i "s/\"workbench.colorTheme\": \".*\"/\"workbench.colorTheme\": \"$THEME\"/" "$VSCODIUM_SETTINGS_JSON"
 
-
-# Wallpaper (Corrigi de 'awww' para 'swww')
+#
+# Wallpaper
+#
 WALL=$(find "$THEME_PATH" -type f \( -name "*.jpg" -o -name "*.png" \) | head -n 1)
 awww img "$WALL" --transition-type grow --transition-pos "$(hyprctl cursorpos | tr -d ' ')" --transition-fps 144
 
-
+#
 # Terminal Kitty (Sinal USR1 para reload instantâneo)
+#
 if [ -f "$THEME_PATH/kitty.conf" ]; then
     ln -sf "$THEME_PATH/kitty.conf" "$HOME/.config/kitty/theme.conf"
     kill -USR1 $(pidof kitty) 2>/dev/null
 fi
 
+#
+# Superfile
+#
+if [ -f "$THEME_PATH/superfile.toml" ]; then
+    sed -i "s/^theme =.*/theme = \"$CHOICE\"/" $SUPERFILE_CONFIG
+
+    # reload if is running
+    if [ -n "$(pidof spf)" ]; then
+        kill $(pidof spf) 2>/dev/null
+        kitty --class files-floating -e spf &
+    fi
+fi
+
+#
 # GTK Settings (Lendo do seu settings.ini)
+#
 if [ -f "$THEME_PATH/settings.ini" ]; then
     GTK_THEME=$(grep "gtk_theme" "$THEME_PATH/settings.ini" | cut -d'=' -f2)
     COLOR_SCHEME=$(grep "color_scheme" "$THEME_PATH/settings.ini" | cut -d'=' -f2)
-#     ICON_THEME=$(grep "icon_theme" "$THEME_PATH/settings.ini" | cut -d'=' -f2)
+    ICON_THEME=$(grep "icon_theme" "$THEME_PATH/settings.ini" | cut -d'=' -f2)
     echo $COLOR_SCHEME
     gsettings set org.gnome.desktop.interface gtk-theme "$GTK_THEME"
     gsettings set org.gnome.desktop.interface color-scheme "$COLOR_SCHEME"
-#     gsettings set org.gnome.desktop.interface icon-theme "$ICON_THEME"
+    gsettings set org.gnome.desktop.interface icon-theme "$ICON_THEME"
     
 #     # GTK4 Link (Opcional, mas recomendado para o System Monitor)
 #     mkdir -p ~/.config/gtk-4.0
 #     ln -sf "/usr/share/themes/$GTK_THEME/gtk-4.0/gtk.css" "$HOME/.config/gtk-4.0/gtk.css"
 #     ln -sf "/usr/share/themes/$GTK_THEME/gtk-4.0/gtk-dark.css" "$HOME/.config/gtk-4.0/gtk-dark.css"
 fi
+
 
 # Reload Apps
 killall -SIGUSR2 waybar

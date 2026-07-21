@@ -2,8 +2,9 @@
 
 # Configuração das opções: "Nome" -> "Comando | Caminho_do_Ícone"
 declare -A MENU_OPTIONS=(
-    ["Lock"]="loginctl lock-session|/usr/share/icons/BeautyLine/actions/scalable/lock.svg"
-    ["Logout"]="hyprctl dispatch exit|/usr/share/icons/BeautyLine/actions/scalable/xfsm-logout.svg"
+#    ["Lock"]="loginctl lock-session|/usr/share/icons/BeautyLine/actions/scalable/lock.svg"
+    ["Lock"]="hyprlock|/usr/share/icons/BeautyLine/actions/scalable/lock.svg"
+    ["Logout"]="hyprctl dispatch 'hl.dsp.exit()'|/usr/share/icons/BeautyLine/actions/scalable/xfsm-logout.svg"
     ["Power Off"]="systemctl poweroff|/usr/share/icons/BeautyLine/actions/scalable/system-shutdown-symbolic.svg"
     ["Reboot"]="systemctl reboot|/usr/share/icons/BeautyLine/actions/scalable/system-reboot-symbolic.svg"
     ["Suspend"]="systemctl suspend|/usr/share/icons/BeautyLine/actions/scalable/media-playback-pause.svg"
@@ -25,5 +26,5 @@ SELECTED_NAME="${CHOICE#*:text:}"
 COMMAND_TO_RUN="${MENU_OPTIONS[$SELECTED_NAME]%|*}"
 
 if [[ -n "$COMMAND_TO_RUN" ]]; then
-    exec $COMMAND_TO_RUN
+    eval exec $COMMAND_TO_RUN
 fi

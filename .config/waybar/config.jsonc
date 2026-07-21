@@ -38,11 +38,11 @@
         "custom/l_end",
         "clock",
         "custom/r_end",
-        "custom/l_end",
-        "hyprland/language",
-        // "custom/numlock",
-        "keyboard-state",
-        "custom/r_end",
+        // "custom/l_end",
+        // "hyprland/language",
+        // // "custom/numlock",
+        // "keyboard-state",
+        // "custom/r_end",
         "group/control-panel",
         "custom/padd"
     ]
