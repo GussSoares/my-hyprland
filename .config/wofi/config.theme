@@ -1,0 +1,15 @@
+location=middle
+show=dmenu
+width=380
+always_parse_args=true
+print_command=true
+layer=overlay
+insensitive=true
+prompt=
+term=kitty
+image_size=150
+columns=2
+hide_scroll=true
+normal_window=true
+lines=5
+allow_images=true

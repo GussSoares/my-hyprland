@@ -1,0 +1,149 @@
+@import "theme.css";
+
+* {
+  font-family: "FiraCode Nerd Font";
+  font-weight: 500;
+  text-shadow: none;
+  /* Remove sombras que atrapalham no modo claro */
+}
+
+.control-center {
+  background: alpha(@base, 0.9);
+  /* Aumentado para 0.9 para ajudar no Latte */
+  border: 2px solid @blue;
+  border-radius: 12px;
+  color: @text;
+  padding: 10px;
+}
+
+/* Notificações individuais */
+.notification-row {
+  outline: none;
+  margin: 4px;
+  padding: 0px;
+}
+
+.notification {
+  background: @surface0;
+  border: 2px solid @blue;
+  border-radius: 12px;
+  color: @text;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.notification-content {
+  background: transparent;
+}
+
+.notification-group {
+  background: transparent;
+}
+
+.notification-default-action:hover {
+  background: @surface1;
+}
+
+.notification-title {
+  color: @blue;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.notification-body {
+  color: @subtext0;
+}
+
+/* Widget de Mídia (MPRIS) */
+.widget-mpris {
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.widget-mpris-title {
+  font-weight: bold;
+  color: @lavender;
+}
+
+/* Botões do Grid */
+.widget-buttons-grid {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.widget-buttons-grid>flowbox>flowboxchild>button {
+  background: @surface0;
+  border-radius: 8px;
+  color: @text;
+  margin: 5px;
+  padding: 10px;
+}
+
+.widget-buttons-grid>flowbox>flowboxchild>button:hover {
+  background: @blue;
+  color: @base;
+  border-radius: 12px;
+}
+
+/* Botão Limpar Tudo - CORRIGIDO */
+.control-center .widget-title>label {
+  color: @text;
+  font-size: 1.3em;
+}
+
+.control-center .widget-title button {
+  color: @base;
+  background-color: @blue;
+  /* Usando cor de destaque para visibilidade */
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.control-center .widget-title button:hover {
+  background-color: @lavender;
+  color: @base;
+}
+
+/* Switch Não Perturbe (DND) */
+.widget-dnd {
+  margin: 10px;
+}
+
+.widget-dnd>switch {
+  background: @surface0;
+  border: 1px solid @surface1;
+  border-radius: 12px;
+}
+
+.widget-dnd>switch:checked {
+  background: @blue;
+}
+
+/* --- BLOCO DE COMPATIBILIDADE PARA LATTE (E OUTROS TEMAS) --- */
+/* Forçamos os seletores internos a usarem variáveis em vez de hex fixos */
+
+.notification .notification-content .summary,
+.control-center .notification-row .notification-background .notification .notification-content .summary {
+  color: @text;
+  font-size: 1.1rem;
+}
+
+.notification .notification-content .time,
+.control-center .notification-row .notification-background .notification .notification-content .time {
+  color: @subtext1;
+  /* Usando subtext1 do theme.css */
+  font-size: 0.8rem;
+}
+
+.notification .notification-content .body,
+.control-center .notification-row .notification-background .notification .notification-content .body {
+  color: @text;
+  font-size: 0.8rem;
+  padding-top: 8px;
+}
+
+/* Correção de bordas internas */
+.control-center .notification-row .notification-background .notification {
+  border: 2px solid @blue;
+  background: @surface0;
+}

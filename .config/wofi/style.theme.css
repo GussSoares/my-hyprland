@@ -1,0 +1,83 @@
+/*
+** Scheme: Catppuccin Mocha (Minimalist Rice)
+** Adaptado para o Theme Switcher com Thumbs
+*/
+
+@define-color base      #1e1e2e;
+@define-color mantle    #181825;
+@define-color surface0  #313244;
+@define-color surface1  #45475a;
+@define-color text      #cdd6f4;
+@define-color mauve     #cba6f7;
+@define-color blue      #89b4fa;
+@define-color lavender  #b4befe;
+
+/* Animação suave de entrada */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+#window {
+  animation: fadeIn 0.4s ease-in-out;
+  background-color: transparent; /* Permite que o outer-box controle o visual */
+  font-family: 'JetBrainsMono Nerd Font', 'FiraCode Nerd Font';
+  font-size: 14px;
+}
+
+#outer-box {
+  background-color: rgba(30, 30, 46, 0.85); /* Base Mocha com transparência */
+  border-radius: 10px;
+  padding: 12px;
+  margin: 0px;
+}
+
+#input {
+  margin: -1000px 5px;
+  border: none;
+  background-color: @surface0;
+  color: @text;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  padding: 10px;
+}
+
+#inner-box {
+  background-color: transparent;
+  border-radius: 8px;
+}
+
+#entry {
+  border-radius: 8px;
+  padding: 8px;
+  margin: 4px 0px;
+  transition: all 0.2s ease-in-out;
+}
+
+#entry:selected {
+  background-color: rgba(203, 166, 247, 0.2); /* Mauve transparente */
+  border: 1px solid @mauve;
+}
+
+#text {
+  color: @text;
+  background-color: transparent;
+}
+
+#text:selected {
+  color: @mauve;
+  font-weight: bold;
+}
+
+#img {
+  margin-right: 15px;
+  /* Forçando proporção de preview de wallpaper */
+  /* min-width: 120px;
+  max-width: 120px;
+  min-height: 68px;
+  max-height: 68px; */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 16px;
+}
